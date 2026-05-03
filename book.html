@@ -212,8 +212,6 @@
       <input type="text" class="form-input" placeholder="First name">
       <input type="text" class="form-input" placeholder="Last name">
     </div>
-    <input type="email" class="form-input" placeholder="Email address">
-    <input type="text" class="form-input" placeholder="Organisation (optional)">
     <form id="book-form" style="display:flex;flex-direction:column;gap:12px;">
       <input type="email" id="book-email" name="email_address" required
         style="background:rgba(240,237,230,0.04);border:0.5px solid rgba(240,237,230,0.2);border-radius:2px;padding:0.85rem 1rem;color:#f0ede6;font-family:DM Sans,sans-serif;font-size:14px;font-weight:300;outline:none;width:100%;"
@@ -227,22 +225,28 @@
   </div>
 </section>
 <script>
-document.getElementById("book-form").addEventListener("submit", async function(e) {
+document.getElementById("book-form").addEventListener("submit", function(e) {
   e.preventDefault();
   const btn = document.getElementById("book-btn");
   const email = document.getElementById("book-email").value;
   btn.textContent = "Registering...";
   btn.style.opacity = "0.7";
-  const data = new FormData();
-  data.append("email_address", email);
-  try {
-    await fetch("https://app.kit.com/forms/9398374/subscriptions", {
-      method: "POST",
-      body: data,
-      mode: "no-cors"
-    });
-  } catch(err) {}
-  window.location.href = "thankyou.html";
+  const form = document.createElement("form");
+  form.method = "POST";
+  form.action = "https://app.kit.com/forms/9398374/subscriptions";
+  form.style.display = "none";
+  const emailInput = document.createElement("input");
+  emailInput.type = "hidden";
+  emailInput.name = "email_address";
+  emailInput.value = email;
+  form.appendChild(emailInput);
+  const redirectInput = document.createElement("input");
+  redirectInput.type = "hidden";
+  redirectInput.name = "redirect_to";
+  redirectInput.value = "https://willturner.au/thankyou.html";
+  form.appendChild(redirectInput);
+  document.body.appendChild(form);
+  form.submit();
 });
 </script>
 
