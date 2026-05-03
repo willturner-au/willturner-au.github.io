@@ -214,10 +214,37 @@
     </div>
     <input type="email" class="form-input" placeholder="Email address">
     <input type="text" class="form-input" placeholder="Organisation (optional)">
-    <a href="#" class="btn-primary" style="text-align:center;width:100%;">Register my interest</a>
-    <div style="font-size:11px;color:var(--cream-20);text-align:center;letter-spacing:0.05em;">Will reads every registration personally. No spam, ever.</div>
+    <form id="book-form" style="display:flex;flex-direction:column;gap:12px;">
+      <input type="email" id="book-email" name="email_address" required
+        style="background:rgba(240,237,230,0.04);border:0.5px solid rgba(240,237,230,0.2);border-radius:2px;padding:0.85rem 1rem;color:#f0ede6;font-family:DM Sans,sans-serif;font-size:14px;font-weight:300;outline:none;width:100%;"
+        placeholder="Your email address">
+      <button type="submit" id="book-btn"
+        style="background:#c9a96e;color:#0e0d0c;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;padding:0.9rem 2rem;border-radius:2px;border:none;cursor:pointer;width:100%;">
+        Register my interest
+      </button>
+    </form>
+    <div style="font-size:11px;color:rgba(240,237,230,0.2);text-align:center;letter-spacing:0.05em;margin-top:1rem;">Will reads every registration personally. No spam, ever.</div>
   </div>
 </section>
+<script>
+document.getElementById("book-form").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById("book-btn");
+  const email = document.getElementById("book-email").value;
+  btn.textContent = "Registering...";
+  btn.style.opacity = "0.7";
+  const data = new FormData();
+  data.append("email_address", email);
+  try {
+    await fetch("https://app.kit.com/forms/9398374/subscriptions", {
+      method: "POST",
+      body: data,
+      mode: "no-cors"
+    });
+  } catch(err) {}
+  window.location.href = "thankyou.html";
+});
+</script>
 
   <div class="tagline-strip"><p>Every session. Every room. Every page. The penny drop.</p></div>
   <div class="ticker"><div class="ticker-track">
