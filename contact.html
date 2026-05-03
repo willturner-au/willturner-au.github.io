@@ -108,18 +108,23 @@
 <div class="contact-wrap">
   <div class="contact-left">
     <div class="section-label">What are you looking for?</div>
+    <form action="https://formspree.io/f/xbdwdqkq" method="POST">
     <div style="margin-bottom:2rem;">
+      <p style="font-size:12px;color:rgba(240,237,230,0.35);margin-bottom:0.75rem;letter-spacing:0.05em;">Select all that apply</p>
       <span class="offer-pill" onclick="this.classList.toggle('selected')">Keynote Speaker</span>
       <span class="offer-pill" onclick="this.classList.toggle('selected')">Executive Coach</span>
       <span class="offer-pill" onclick="this.classList.toggle('selected')">Trusted Advisor</span>
       <span class="offer-pill" onclick="this.classList.toggle('selected')">The Book</span>
       <span class="offer-pill" onclick="this.classList.toggle('selected')">Something else</span>
     </div>
-    <div class="form-group"><label class="form-label">Your name</label><input type="text" class="form-input" placeholder="First and last name"></div>
-    <div class="form-group"><label class="form-label">Your organisation</label><input type="text" class="form-input" placeholder="Company or organisation"></div>
-    <div class="form-group"><label class="form-label">Email address</label><input type="email" class="form-input" placeholder="you@yourcompany.com"></div>
-    <div class="form-group"><label class="form-label">Tell Will what's going on</label><textarea class="form-input" placeholder="What's the challenge? What does the penny drop need to unlock for you? The more context you give Will, the better the conversation will be."></textarea></div>
-    <a href="#" class="btn-primary" style="margin-top:0.5rem;">Send to Will</a>
+    <div class="form-group"><label class="form-label">Your name</label><input type="text" name="name" required class="form-input" placeholder="First and last name"></div>
+    <div class="form-group"><label class="form-label">Your organisation</label><input type="text" name="organisation" class="form-input" placeholder="Company or organisation"></div>
+    <div class="form-group"><label class="form-label">Email address</label><input type="email" name="email" required class="form-input" placeholder="you@yourcompany.com"></div>
+    <div class="form-group"><label class="form-label">Tell Will what's going on</label><textarea name="message" class="form-input" placeholder="What's the challenge? What does the penny drop need to unlock for you? The more context you give Will, the better the conversation will be."></textarea></div>
+    <input type="hidden" name="_subject" value="New enquiry — willturner.au">
+    <input type="hidden" name="_next" value="https://willturner.au/contact.html">
+    <button type="submit" class="btn-primary" style="margin-top:0.5rem;width:100%;cursor:pointer;border:none;">Send to Will</button>
+    </form>
   </div>
   <div class="contact-right">
     <div class="section-label">The details</div>
