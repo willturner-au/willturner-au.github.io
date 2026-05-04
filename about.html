@@ -2,7 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Will Turner — Will Turner</title>
+<title>About Will Turner — Creator of Simplexity</title>
+
+<meta name="description" content="Will Turner has spent 20+ years finding the simple human truth inside complex challenges. Keynote speaker, executive coach, trusted advisor and author. Based in Brisbane.">
+<link rel="canonical" href="https://willturner.au/about.html">
+<meta property="og:title" content="About Will Turner — Creator of Simplexity">
+<meta property="og:description" content="Will Turner has spent 20+ years finding the simple human truth inside complex challenges. Keynote speaker, executive coach, trusted advisor and author. Based in Brisbane.">
+<meta property="og:url" content="https://willturner.au/about.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://willturner.au/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About Will Turner — Creator of Simplexity">
+<meta name="twitter:description" content="Will Turner has spent 20+ years finding the simple human truth inside complex challenges. Keynote speaker, executive coach, trusted advisor and author. Based in Brisbane.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -76,6 +87,48 @@
     .p-num { font-size: 11px; color: var(--gold); letter-spacing: 0.15em; min-width: 24px; padding-top: 2px; }
     .p-text { font-size: 14px; color: var(--cream-60); line-height: 1.7; }
     .p-text strong { color: var(--cream); font-weight: 500; }
+
+    /* ===== MOBILE NAV + RESPONSIVE ===== */
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:10px;z-index:200;background:none;border:none}
+    .nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--cream);transition:transform .25s,opacity .25s}
+    .nav-overlay{display:none}
+    .nav-mobile-inner{display:none}
+    @media(max-width:860px){
+      nav{padding:1.25rem 1.5rem}
+      .nav-hamburger{display:flex}
+      .nav-links{display:none!important}
+      .nav-cta{display:none!important}
+      .nav-overlay{display:block;position:fixed;inset:0;background:var(--ink);z-index:150;opacity:0;pointer-events:none;transition:opacity .35s}
+      .nav-overlay.open{opacity:1;pointer-events:all}
+      .nav-mobile-inner{display:flex;position:fixed;inset:0;z-index:160;flex-direction:column;align-items:center;justify-content:center;gap:2.75rem;opacity:0;pointer-events:none;transition:opacity .3s .05s}
+      .nav-mobile-inner.open{opacity:1;pointer-events:all}
+      .nav-mobile-inner a{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--cream);text-decoration:none;letter-spacing:.02em;transition:color .2s}
+      .nav-mobile-inner a:hover{color:var(--gold)}
+      .nav-mobile-cta{font-family:'DM Sans',sans-serif!important;font-size:12px!important;letter-spacing:.14em;text-transform:uppercase;font-weight:500!important;color:var(--ink)!important;background:var(--gold)!important;padding:.85rem 2.5rem!important;border-radius:2px!important}
+      .nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
+      .nav-hamburger.open span:nth-child(2){opacity:0}
+      .nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+      .page-hero{padding:8rem 1.5rem 3rem}
+      .col{padding:2.5rem 1.5rem}
+      .two-col{grid-template-columns:1fr}
+      .col-bordered{border-right:none;border-bottom:.5px solid var(--cream-10)}
+      .enemy-grid{grid-template-columns:1fr}
+      .matrix-section,.enemy-section{padding:3rem 1.5rem}
+      .cta-band{padding:3rem 1.5rem}
+      footer{padding:2rem 1.5rem;flex-direction:column;gap:1rem;text-align:center}
+      .footer-links{justify-content:center}
+      .tagline-strip{padding:1.25rem 1.5rem}
+      .actions{flex-direction:column;align-items:center}
+      .btn-primary,.btn-ghost{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+    }
+    @media(max-width:560px){
+      nav{padding:1rem 1.25rem}
+      .page-hero{padding:7rem 1.25rem 2.5rem}
+      .col{padding:2rem 1.25rem}
+      .cta-band,.matrix-section,.enemy-section{padding-left:1.25rem;padding-right:1.25rem}
+      footer{padding:1.5rem 1.25rem}
+      .tagline-strip p{font-size:15px}
+    }
 </style>
 </head>
 <body>
@@ -83,7 +136,18 @@
     <a href="index.html" class="nav-logo"><span class="logo-will">Will</span><span class="logo-turner"> Turner</span></a>
     <ul class="nav-links"><li><a href="speaking.html">Speaking</a></li><li><a href="coaching.html">Coaching</a></li><li><a href="advisory.html">Advisory</a></li><li><a href="book.html">Book</a></li><li><a href="about.html"  class="active">About</a></li></ul>
     <a href="contact.html" class="nav-cta">Work with Will</a>
+    <button class="nav-hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+  <div class="nav-mobile-inner" id="navMobile">
+    <a href="speaking.html">Speaking</a>
+    <a href="coaching.html">Coaching</a>
+    <a href="advisory.html">Advisory</a>
+    <a href="book.html">Book</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="nav-mobile-cta">Work with Will</a>
+  </div>
+  <script>(function(){var b=document.getElementById('navToggle'),o=document.getElementById('navOverlay'),m=document.getElementById('navMobile');function t(x){b.classList.toggle('open',x);o.classList.toggle('open',x);m.classList.toggle('open',x);b.setAttribute('aria-expanded',x);document.body.style.overflow=x?'hidden':'';}b.addEventListener('click',function(){t(!o.classList.contains('open'));});o.addEventListener('click',function(){t(false);});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){t(false);});});})()</script>
 
 <div class="page-hero">
   <div class="page-eyebrow">About Will</div>
@@ -97,40 +161,40 @@
 <div class="two-col">
   <div class="col col-bordered">
     <div class="section-label">The story</div>
-    <p class="body-text">Will Turner has spent more than 20 years in rooms with leaders — on stage, in boardrooms, in coaching conversations at 7am before the day begins. And in every one of those rooms, he has been doing the same thing: <strong>finding the simple human truth inside the unconscious complexity, and using it to move people forward.</strong></p>
-    <p class="body-text">He didn't always have a name for it. But a friend called Helen — in London, 15 years ago — looked at him and said: "You are all about simplexity — making complex things simple. It is a real gift."</p>
+    <p class="body-text">Will Turner has spent more than 20 years in rooms with leaders &mdash; on stage, in boardrooms, in coaching conversations at 7am before the day begins. And in every one of those rooms, he has been doing the same thing: <strong>finding the simple human truth inside the unconscious complexity, and using it to move people forward.</strong></p>
+    <p class="body-text">He didn't always have a name for it. But a friend called Helen &mdash; in London, 15 years ago &mdash; looked at him and said: "You are all about simplexity &mdash; making complex things simple. It is a real gift."</p>
     <p class="body-text">Two independent coaching sessions later, the same word surfaced again. From different people, different contexts, different countries. The same truth. So he named it. <strong>Simplexity.</strong></p>
-    <p class="body-text">And then something even more important happened. He identified the enemy: <strong>unconscious complexity</strong> — the complexity leaders create beyond what the situation actually requires, without knowing they're doing it. And he built the framework to show them where it lives — and how to move through the penny drop to the other side.</p>
+    <p class="body-text">And then something even more important happened. He identified the enemy: <strong>unconscious complexity</strong> &mdash; the complexity leaders create beyond what the situation actually requires, without knowing they're doing it. And he built the framework to show them where it lives &mdash; and how to move through the penny drop to the other side.</p>
     <div class="quote-block" style="margin-top:2rem;">
-      <div class="quote-text">"You are all about simplexity — making complex things simple. It is a real gift."</div>
-      <div class="quote-attr">Helen — London, 2011</div>
+      <div class="quote-text">"You are all about simplexity &mdash; making complex things simple. It is a real gift."</div>
+      <div class="quote-attr">Helen &mdash; London, 2011</div>
     </div>
   </div>
   <div class="col">
     <div class="section-label">What is true about Will</div>
-    <div class="principle-row"><div class="p-num">—</div><div class="p-text"><strong>Core gift.</strong> Takes complex ideas, finds the human story inside them, and delivers them in a way that makes people feel something and think differently. Then they change behaviour as a result.</div></div>
-    <div class="principle-row"><div class="p-num">—</div><div class="p-text"><strong>Best moment.</strong> On stage, watching the penny drop. The lightbulb. That is when Will feels most alive.</div></div>
-    <div class="principle-row"><div class="p-num">—</div><div class="p-text"><strong>The method.</strong> Find the human moment. Use it to unlock the business truth. Create the penny drop. This is Simplexity in action — and it works in any industry, for any leader, at any level.</div></div>
-    <div class="principle-row"><div class="p-num">—</div><div class="p-text"><strong>The enemy.</strong> Unconscious complexity — beyond what the situation requires. Every session, every room, every page is about helping people see it and move through it.</div></div>
-    <div class="principle-row"><div class="p-num">—</div><div class="p-text"><strong>The rule.</strong> Only take engagements that create the penny drop. If it isn't there, the answer is no.</div></div>
-    <div class="principle-row"><div class="p-num">—</div><div class="p-text"><strong>Based.</strong> Brisbane, Australia. Available nationally and internationally.</div></div>
+    <div class="principle-row"><div class="p-num">&mdash;</div><div class="p-text"><strong>Core gift.</strong> Takes complex ideas, finds the human story inside them, and delivers them in a way that makes people feel something and think differently. Then they change behaviour as a result.</div></div>
+    <div class="principle-row"><div class="p-num">&mdash;</div><div class="p-text"><strong>Best moment.</strong> On stage, watching the penny drop. The lightbulb. That is when Will feels most alive.</div></div>
+    <div class="principle-row"><div class="p-num">&mdash;</div><div class="p-text"><strong>The method.</strong> Find the human moment. Use it to unlock the business truth. Create the penny drop. This is Simplexity in action &mdash; and it works in any industry, for any leader, at any level.</div></div>
+    <div class="principle-row"><div class="p-num">&mdash;</div><div class="p-text"><strong>The enemy.</strong> Unconscious complexity &mdash; beyond what the situation requires. Every session, every room, every page is about helping people see it and move through it.</div></div>
+    <div class="principle-row"><div class="p-num">&mdash;</div><div class="p-text"><strong>The rule.</strong> Only take engagements that create the penny drop. If it isn't there, the answer is no.</div></div>
+    <div class="principle-row"><div class="p-num">&mdash;</div><div class="p-text"><strong>Based.</strong> Brisbane, Australia. Available nationally and internationally.</div></div>
   </div>
 </div>
 <section class="matrix-section">
-  <div class="section-label">The Simplexity Matrix — Will Turner's original IP</div>
-  <p style="font-size:15px;color:var(--cream-40);max-width:580px;line-height:1.85;margin-bottom:3rem;">This framework emerged from 20 years of creating penny drop moments. Every leader starts somewhere on this matrix. Will's job is to move them — in every session, every room, every page.</p>
+  <div class="section-label">The Simplexity Matrix &mdash; Will Turner's original IP</div>
+  <p style="font-size:15px;color:var(--cream-40);max-width:580px;line-height:1.85;margin-bottom:3rem;">This framework emerged from 20 years of creating penny drop moments. Every leader starts somewhere on this matrix. Will's job is to move them &mdash; in every session, every room, every page.</p>
   <svg width="100%" viewBox="0 0 680 520" role="img" style="display:block;">
 <title>The Simplexity Matrix</title>
-<desc>A 2x2 matrix: Simple at top, Complex at bottom. Unconscious left, Conscious right. Top-left: Flow (unconscious simplicity). Top-right: The Penny Drop (conscious simplicity) — the destination. Bottom-left: The Danger Zone (unconscious complexity) — the starting point. Bottom-right: The Overwhelmed Leader (conscious complexity).</desc>
+<desc>A 2x2 matrix: Simple at top, Complex at bottom. Unconscious left, Conscious right. Top-left: Flow (unconscious simplicity). Top-right: The Penny Drop (conscious simplicity) &mdash; the destination. Bottom-left: The Danger Zone (unconscious complexity) &mdash; the starting point. Bottom-right: The Overwhelmed Leader (conscious complexity).</desc>
 <defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
 
-<!-- Top-left: Flow (unconscious simple) — dim -->
+<!-- Top-left: Flow (unconscious simple) &mdash; dim -->
 <rect x="40" y="40" width="280" height="200" rx="4" fill="#141210" stroke="rgba(240,237,230,0.07)" stroke-width="0.5"/>
-<!-- Top-right: The Penny Drop (conscious simple) — highlighted destination -->
+<!-- Top-right: The Penny Drop (conscious simple) &mdash; highlighted destination -->
 <rect x="360" y="40" width="280" height="200" rx="4" fill="#1a1814" stroke="#c9a96e" stroke-width="1" opacity="0.95"/>
-<!-- Bottom-left: The Danger Zone (unconscious complex) — highlighted start -->
+<!-- Bottom-left: The Danger Zone (unconscious complex) &mdash; highlighted start -->
 <rect x="40" y="270" width="280" height="200" rx="4" fill="#1a1814" stroke="rgba(201,169,110,0.4)" stroke-width="0.75" opacity="0.95"/>
-<!-- Bottom-right: Overwhelmed Leader (conscious complex) — dim -->
+<!-- Bottom-right: Overwhelmed Leader (conscious complex) &mdash; dim -->
 <rect x="360" y="270" width="280" height="200" rx="4" fill="#141210" stroke="rgba(240,237,230,0.1)" stroke-width="0.5"/>
 
 <!-- Top-left: Flow -->
@@ -164,7 +228,7 @@
 <line x1="320" y1="30" x2="320" y2="480" stroke="rgba(240,237,230,0.1)" stroke-width="0.5"/>
 <line x1="30" y1="250" x2="650" y2="250" stroke="rgba(240,237,230,0.1)" stroke-width="0.5"/>
 
-<!-- Arrow: bottom-left → top-right (Danger Zone → Penny Drop) — upward diagonal -->
+<!-- Arrow: bottom-left â top-right (Danger Zone â Penny Drop) &mdash; upward diagonal -->
 <path d="M260 340 L440 170" stroke="#c9a96e" stroke-width="2.5" stroke-dasharray="6 4" fill="none" marker-end="url(#arr)"/>
 <text font-family="'Playfair Display',serif" font-size="13" font-style="italic" font-weight="700" fill="#c9a96e" x="358" y="248" text-anchor="middle">the penny drop</text>
 
@@ -179,7 +243,7 @@
 </section>
 <div class="cta-band">
   <h2 class="cta-headline">Ready to work<br><em>with Will?</em></h2>
-  <p class="cta-sub">Whether you need a keynote, a coach, or a trusted voice in the room — start with a conversation.</p>
+  <p class="cta-sub">Whether you need a keynote, a coach, or a trusted voice in the room &mdash; start with a conversation.</p>
   <div class="actions"><a href="contact.html" class="btn-primary">Work with Will</a><a href="speaking.html" class="btn-ghost">See Will speak &rarr;</a></div>
 </div>
 
@@ -194,5 +258,6 @@
     <div class="footer-copy">&copy; 2026 Will Turner &mdash; willturner.au</div>
     <div class="footer-links"><a href="speaking.html">Speaking</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
   </footer>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"AboutPage","name":"About Will Turner — Creator of Simplexity","url":"https://willturner.au/about.html"},{"@type":"Person","@id":"https://willturner.au/#will","name":"Will Turner","url":"https://willturner.au"}]}</script>
 </body>
 </html>
