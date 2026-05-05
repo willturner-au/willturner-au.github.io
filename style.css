@@ -43,13 +43,55 @@
     .quote-attr { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
     .tagline-strip { background: var(--gold); padding: 1.25rem 4rem; text-align: center; }
     .tagline-strip p { font-family: 'Playfair Display', serif; font-size: 20px; font-style: italic; color: var(--ink); font-weight: 400; letter-spacing: 0.02em; }
-    footer { border-top: 0.5px solid var(--cream-10); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; }
+    footer { border-top: 0.5px solid var(--cream-10); padding: 2.5rem 4rem; display: flex; flex-direction: column; gap: 1.25rem; }
+    .footer-top { display: flex; justify-content: space-between; align-items: center; }
     .footer-logo { font-family: 'Playfair Display', serif; font-size: 15px; }
     .footer-logo .logo-will { font-style: italic; font-weight: 400; color: var(--cream-40); }
     .footer-logo .logo-turner { font-weight: 700; color: rgba(201,169,110,0.5); }
     .footer-copy { font-size: 11px; color: var(--cream-20); letter-spacing: 0.08em; }
-    .footer-links { display: flex; gap: 2rem; }
-    .footer-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream-20); text-decoration: none; }
+    .footer-nav { display: flex; gap: 2rem; }
+    .footer-nav a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream-20); text-decoration: none; transition: color 0.2s; }
+    .footer-nav a:hover { color: var(--cream-40); }
+    .footer-social-row { display: flex; gap: 0; align-items: center; padding-top: 1rem; border-top: 0.5px solid var(--cream-10); }
+    .footer-social-row a { font-size: 11px; letter-spacing: 0.1em; color: rgba(240,237,230,0.22); text-decoration: none; transition: color 0.2s; padding-right: 1.5rem; }
+    .footer-social-row a:hover { color: var(--cream-40); }
+    .footer-social-row a + a { padding-left: 1.5rem; padding-right: 1.5rem; border-left: 0.5px solid var(--cream-10); }
+    .footer-social-row a:last-child { padding-right: 0; }
+    /* Thinking strip — editorial, not promotional */
+    .thinking-strip { padding: 2.25rem 4rem; border-top: 0.5px solid var(--cream-10); display: flex; align-items: baseline; gap: 0.75rem; }
+    .thinking-strip p { font-size: 15px; color: var(--cream-40); line-height: 1.6; }
+    .thinking-strip a { font-size: 15px; color: var(--gold); text-decoration: none; letter-spacing: 0.03em; transition: opacity 0.2s; white-space: nowrap; }
+    .thinking-strip a:hover { opacity: 0.75; }
+    /* Substack bridge — book page */
+    .substack-bridge { background: var(--shadow); border-top: 0.5px solid var(--cream-10); border-bottom: 0.5px solid var(--cream-10); padding: 5rem 4rem; position: relative; overflow: hidden; }
+    .substack-bridge::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gold); }
+    .substack-bridge-eyebrow { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+    .substack-bridge-headline { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3.5vw, 42px); font-style: italic; color: var(--cream); font-weight: 400; line-height: 1.2; margin-bottom: 1.25rem; }
+    .substack-bridge-body { font-size: 17px; color: var(--cream-40); line-height: 1.8; max-width: 560px; margin-bottom: 2rem; }
+    /* Stage evidence block — speaking page */
+    .stage-evidence { padding: 5rem 4rem; border-top: 0.5px solid var(--cream-10); }
+    .stage-evidence-label { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; }
+    .stage-evidence-label em { font-style: italic; font-family: 'Playfair Display', serif; font-size: 17px; letter-spacing: 0; text-transform: none; color: var(--cream-40); display: block; margin-top: 0.35rem; }
+    .stage-video-wrap { position: relative; width: 100%; aspect-ratio: 16/9; background: var(--shadow); border: 0.5px solid var(--cream-10); border-radius: 3px; overflow: hidden; margin-bottom: 1.25rem; }
+    .stage-video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+    .stage-video-placeholder { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; flex-direction: column; gap: 1rem; }
+    .stage-video-cta { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 3rem; transition: opacity 0.2s; }
+    .stage-video-cta:hover { opacity: 0.7; }
+    .stage-ig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 1rem; }
+    .stage-ig-cell { aspect-ratio: 1; background: var(--shadow); border: 0.5px solid var(--cream-10); border-radius: 2px; overflow: hidden; position: relative; }
+    .stage-ig-cell img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.85; transition: opacity 0.3s; }
+    .stage-ig-cell:hover img { opacity: 1; }
+    .stage-ig-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+    .stage-ig-link { font-size: 11px; letter-spacing: 0.12em; color: var(--cream-40); text-decoration: none; transition: color 0.2s; }
+    .stage-ig-link:hover { color: var(--cream); }
+    /* About social CTAs */
+    .about-social-ctas { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--cream-10); border-top: 0.5px solid var(--cream-10); }
+    .social-cta-cell { background: var(--shadow); padding: 2.5rem 3rem; }
+    .social-cta-platform { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+    .social-cta-text { font-size: 17px; color: var(--cream-40); line-height: 1.7; margin-bottom: 1.25rem; }
+    .social-cta-text strong { color: var(--cream); font-weight: 500; }
+    .social-cta-link { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.2s; }
+    .social-cta-link:hover { opacity: 0.7; }
     .ticker { background: var(--gold); padding: 0.7rem 0; overflow: hidden; }
     .ticker-track { display: flex; white-space: nowrap; animation: ticker 28s linear infinite; }
     .ticker-item { display: flex; align-items: center; gap: 2rem; padding: 0 2rem; }
@@ -97,8 +139,14 @@
       .enemy-grid{grid-template-columns:1fr}
       .matrix-section,.enemy-section{padding:3rem 1.5rem}
       .cta-band{padding:3rem 1.5rem}
-      footer{padding:2rem 1.5rem;flex-direction:column;gap:1rem;text-align:center}
-      .footer-links{justify-content:center}
+      footer{padding:2rem 1.5rem;}
+      .footer-top{flex-direction:column;gap:1rem;text-align:center}
+      .footer-nav{justify-content:center}
+      .footer-social-row{justify-content:center;flex-wrap:wrap;gap:0}
+      .thinking-strip{padding:2rem 1.5rem;flex-direction:column;gap:0.35rem}
+      .stage-evidence{padding:3rem 1.5rem}
+      .about-social-ctas{grid-template-columns:1fr}
+      .substack-bridge{padding:3rem 1.5rem}
       .tagline-strip{padding:1.25rem 1.5rem}
       .actions{flex-direction:column;align-items:center}
       .btn-primary,.btn-ghost{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
