@@ -91,6 +91,14 @@
     .contact-detail-row{flex-wrap:wrap;gap:0.5rem}
     .contact-detail-val{word-break:break-all}
   }
+
+  /* Contact page mobile layout fix */
+  @media(max-width:860px){
+    .contact-grid{display:block!important}
+    .contact-col{padding:2.5rem 1.5rem!important;border-right:none!important;border-bottom:0.5px solid rgba(240,237,230,0.1)}
+    .contact-col:last-child{border-bottom:none!important}
+    .enquiry-types{grid-template-columns:1fr 1fr!important}
+  }
 </style>
 <!-- Google Analytics - replace G-3JH7PQW1F5 with your Measurement ID -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3JH7PQW1F5"></script>
