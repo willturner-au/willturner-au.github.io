@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="style.css">
 <style>
 .contact-wrap { display:grid;grid-template-columns:1fr 1fr;min-height:70vh; }
+  @media(max-width:960px){ .contact-wrap { display:block; min-height:auto; } .contact-left { padding:3rem 1.5rem; border-right:none; border-bottom:0.5px solid rgba(240,237,230,0.1); } .contact-right { padding:3rem 1.5rem; } }
   .contact-left { padding:5rem 4rem;border-right:0.5px solid var(--cream-10); }
   .contact-right { padding:5rem 4rem;background:var(--shadow); }
   .offer-pill { display:inline-block;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-radius:2px;border:0.5px solid var(--cream-10);color:var(--cream-40);margin:4px 4px 4px 0;cursor:pointer;transition:all 0.2s; }
@@ -71,9 +72,8 @@
       .actions{flex-direction:column;align-items:center}
       .btn-primary,.btn-ghost{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
       .contact-grid{grid-template-columns:1fr!important}
-      .contact-col{padding:2.5rem 1.5rem!important;border-right:none!important;border-bottom:0.5px solid var(--cream-10)}
-      .contact-col:last-child{border-bottom:none}
-      .enquiry-types{grid-template-columns:1fr!important}
+      
+      
     }
     @media(max-width:560px){
       nav{padding:1rem 1.25rem}
@@ -84,23 +84,18 @@
       .tagline-strip p{font-size:15px}
     }
 
-  @media(max-width:860px){
-    .contact-grid{grid-template-columns:1fr!important;gap:0}
-    .contact-col{padding:2.5rem 1.5rem!important;border-right:none!important;border-bottom:0.5px solid var(--cream-10)}
-    .contact-col:last-child{border-bottom:none}
+  
+    
     .contact-detail-row{flex-wrap:wrap;gap:0.5rem}
     .contact-detail-val{word-break:break-all}
   }
 
   
-    .contact-col{padding:2.5rem 1.5rem!important;border-right:none!important;border-bottom:0.5px solid rgba(240,237,230,0.1)}
-    .contact-col:last-child{border-bottom:none!important}
-    .enquiry-types{grid-template-columns:1fr 1fr!important}
+    
+    
   }
 
-  /* Contact page mobile layout */
-  @media(max-width:960px){
-    body .contact-wrap{display:block!important;grid-template-columns:unset!important}
+  
     body .contact-left{padding:3rem 1.5rem!important;border-right:none!important;border-bottom:0.5px solid rgba(240,237,230,0.1)!important}
     body .contact-right{padding:3rem 1.5rem!important}
   }
