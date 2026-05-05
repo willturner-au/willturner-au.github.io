@@ -16,7 +16,7 @@
     .nav-links a { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-40); text-decoration: none; transition: color 0.25s; }
     .nav-links a:hover, .nav-links a.active { color: var(--cream); }
     .nav-cta { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; color: var(--ink); background: var(--gold); padding: 0.6rem 1.5rem; border-radius: 2px; text-decoration: none; }
-    .section-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+    .section-label { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
     .btn-primary { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; color: var(--ink); background: var(--gold); padding: 0.9rem 2rem; border-radius: 2px; text-decoration: none; display: inline-block; }
     .btn-primary:hover { opacity: 0.85; }
     .btn-ghost { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-40); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.25s; }
@@ -39,10 +39,10 @@
     .cta-sub { font-size: 18px; color: var(--cream-40); max-width: 440px; margin: 0 auto 2rem; line-height: 1.65; }
     .actions { display: flex; gap: 1rem; justify-content: center; align-items: center; }
     .quote-block { border-left: 2px solid var(--gold); padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
-    .quote-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: var(--cream); line-height: 1.55; margin-bottom: 0.75rem; }
+    .quote-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 21px; color: var(--cream); line-height: 1.5; margin-bottom: 0.75rem; }
     .quote-attr { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
     .tagline-strip { background: var(--gold); padding: 1.25rem 4rem; text-align: center; }
-    .tagline-strip p { font-family: 'Playfair Display', serif; font-size: 18px; font-style: italic; color: var(--ink); font-weight: 400; letter-spacing: 0.02em; }
+    .tagline-strip p { font-family: 'Playfair Display', serif; font-size: 20px; font-style: italic; color: var(--ink); font-weight: 400; letter-spacing: 0.02em; }
     footer { border-top: 0.5px solid var(--cream-10); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; }
     .footer-logo { font-family: 'Playfair Display', serif; font-size: 15px; }
     .footer-logo .logo-will { font-style: italic; font-weight: 400; color: var(--cream-40); }
@@ -109,5 +109,5 @@
       .col{padding:2rem 1.25rem}
       .cta-band,.matrix-section,.enemy-section{padding-left:1.25rem;padding-right:1.25rem}
       footer{padding:1.5rem 1.25rem}
-      .tagline-strip p{font-size:15px}
+      .tagline-strip p{font-size:17px}
     }
