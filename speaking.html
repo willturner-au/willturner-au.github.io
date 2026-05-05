@@ -22,78 +22,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --ink: #0e0d0c; --shadow: #141210; --gold: #c9a96e; --gold-dark: #8a6d3b;
-      --cream: #f0ede6; --cream-60: rgba(240,237,230,0.6); --cream-40: rgba(240,237,230,0.4);
-      --cream-20: rgba(240,237,230,0.2); --cream-10: rgba(240,237,230,0.1); --cream-06: rgba(240,237,230,0.06);
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--ink); color: var(--cream); font-family: 'DM Sans', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 4rem; background: rgba(14,13,12,0.88); backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--cream-10); }
-    .nav-logo { font-family: 'Playfair Display', serif; font-size: 17px; letter-spacing: 0.01em; text-decoration: none; line-height: 1; }
-    .logo-will { font-style: italic; font-weight: 400; color: var(--cream); }
-    .logo-turner { font-style: normal; font-weight: 700; color: var(--gold); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-40); text-decoration: none; transition: color 0.25s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--cream); }
-    .nav-cta { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; color: var(--ink); background: var(--gold); padding: 0.6rem 1.5rem; border-radius: 2px; text-decoration: none; }
-    .section-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
-    .btn-primary { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; color: var(--ink); background: var(--gold); padding: 0.9rem 2rem; border-radius: 2px; text-decoration: none; display: inline-block; }
-    .btn-primary:hover { opacity: 0.85; }
-    .btn-ghost { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-40); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.25s; }
-    .btn-ghost:hover { color: var(--cream); }
-    .divider { border: none; border-top: 0.5px solid var(--cream-10); margin: 0; }
-    .body-text { font-size: 15px; line-height: 1.9; color: var(--cream-60); margin-bottom: 1.5rem; }
-    .body-text strong { color: var(--cream); font-weight: 500; }
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; }
-    .col { padding: 4rem; }
-    .col-bordered { border-right: 0.5px solid var(--cream-10); }
-    .page-hero { padding: 10rem 4rem 5rem; border-bottom: 0.5px solid var(--cream-10); }
-    .page-eyebrow { font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 12px; }
-    .page-eyebrow::before { content: ''; display: block; width: 32px; height: 0.5px; background: var(--gold); }
-    .page-headline { font-family: 'Playfair Display', serif; font-size: clamp(40px, 5.5vw, 72px); font-weight: 700; line-height: 1.05; letter-spacing: -0.01em; color: var(--cream); margin-bottom: 1.25rem; }
-    .page-headline em { font-style: italic; color: var(--gold); }
-    .page-sub { font-size: 17px; line-height: 1.75; color: var(--cream-60); max-width: 560px; font-weight: 300; }
-    .cta-band { background: var(--shadow); padding: 5rem 4rem; text-align: center; border-top: 0.5px solid var(--cream-10); }
-    .cta-headline { font-family: 'Playfair Display', serif; font-size: clamp(32px,4vw,52px); font-weight: 700; color: var(--cream); margin-bottom: 1rem; line-height: 1.1; }
-    .cta-headline em { font-style: italic; color: var(--gold); }
-    .cta-sub { font-size: 16px; color: var(--cream-40); max-width: 440px; margin: 0 auto 2rem; line-height: 1.7; }
-    .actions { display: flex; gap: 1rem; justify-content: center; align-items: center; }
-    .quote-block { border-left: 2px solid var(--gold); padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
-    .quote-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: var(--cream); line-height: 1.55; margin-bottom: 0.75rem; }
-    .quote-attr { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
-    .tagline-strip { background: var(--gold); padding: 1.25rem 4rem; text-align: center; }
-    .tagline-strip p { font-family: 'Playfair Display', serif; font-size: 18px; font-style: italic; color: var(--ink); font-weight: 400; letter-spacing: 0.02em; }
-    footer { border-top: 0.5px solid var(--cream-10); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; }
-    .footer-logo { font-family: 'Playfair Display', serif; font-size: 15px; }
-    .footer-logo .logo-will { font-style: italic; font-weight: 400; color: var(--cream-40); }
-    .footer-logo .logo-turner { font-weight: 700; color: rgba(201,169,110,0.5); }
-    .footer-copy { font-size: 11px; color: var(--cream-20); letter-spacing: 0.08em; }
-    .footer-links { display: flex; gap: 2rem; }
-    .footer-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream-20); text-decoration: none; }
-    .ticker { background: var(--gold); padding: 0.7rem 0; overflow: hidden; }
-    .ticker-track { display: flex; white-space: nowrap; animation: ticker 28s linear infinite; }
-    .ticker-item { display: flex; align-items: center; gap: 2rem; padding: 0 2rem; }
-    .ticker-word { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); font-weight: 500; }
-    .ticker-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(14,13,12,0.35); }
-    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-33.33%); } }
-    .matrix-section { padding: 5rem 4rem; border-top: 0.5px solid var(--cream-10); background: var(--shadow); }
-    .enemy-section { padding: 5rem 4rem; border-top: 0.5px solid var(--cream-10); }
-    .enemy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 2rem; }
-    .enemy-cell { background: var(--shadow); border: 0.5px solid var(--cream-10); border-radius: 4px; padding: 1.75rem; }
-    .enemy-cell.highlighted { border-color: rgba(201,169,110,0.3); background: rgba(201,169,110,0.04); }
-    .enemy-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--cream); font-weight: 700; margin-bottom: 0.5rem; }
-    .enemy-title em { font-style: italic; color: var(--gold); }
-    .enemy-desc { font-size: 13px; color: var(--cream-40); line-height: 1.75; }
-    .principle-row { display: flex; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 0.5px solid var(--cream-10); align-items: flex-start; }
-    .principle-row:first-of-type { border-top: 0.5px solid var(--cream-10); }
-    .p-num { font-size: 11px; color: var(--gold); letter-spacing: 0.15em; min-width: 24px; padding-top: 2px; }
-    .p-text { font-size: 14px; color: var(--cream-60); line-height: 1.7; }
-    .p-text strong { color: var(--cream); font-weight: 500; }
-
-  .hero-img-wrap { position:relative;height:480px;overflow:hidden;border-bottom:0.5px solid var(--cream-10); }
+.hero-img-wrap { position:relative;height:480px;overflow:hidden;border-bottom:0.5px solid var(--cream-10); }
   .hero-img { width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block; }
   .hero-img-overlay { position:absolute;inset:0;background:linear-gradient(to right,rgba(14,13,12,0.7) 0%,rgba(14,13,12,0.1) 100%); }
   .talk-card { background:var(--shadow);border:0.5px solid var(--cream-10);border-radius:4px;padding:1.75rem;margin-bottom:10px; }
@@ -174,9 +105,7 @@
     <a href="about.html">About</a>
     <a href="contact.html" class="nav-mobile-cta">Work with Will</a>
   </div>
-  <script>(function(){var b=document.getElementById('navToggle'),o=document.getElementById('navOverlay'),m=document.getElementById('navMobile');function t(x){b.classList.toggle('open',x);o.classList.toggle('open',x);m.classList.toggle('open',x);b.setAttribute('aria-expanded',x);document.body.style.overflow=x?'hidden':'';}b.addEventListener('click',function(){t(!o.classList.contains('open'));});o.addEventListener('click',function(){t(false);});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){t(false);});});})()</script>
-
-<div class="page-hero">
+  <div class="page-hero">
   <div class="page-eyebrow">Keynote Speaker</div>
   <h1 class="page-headline">The room changes.<br><em>That's the penny drop.</em></h1>
   <p class="page-sub">Will Turner doesn't deliver information. He engineers the penny drop &mdash; the moment unconscious complexity becomes visible and a room sees something they can't unsee. Every session. Every room. Every page.</p>
@@ -252,5 +181,6 @@
   </footer>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://willturner.au/"},{"@type":"ListItem","position":2,"name":"Keynote Speaker","item":"https://willturner.au/speaking.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does Will Turner speak about?","acceptedAnswer":{"@type":"Answer","text":"Will Turner delivers keynote talks on Simplexity — helping leaders identify unconscious complexity and find the simple human truth at the centre of every challenge. His signature is the penny drop moment: when a room shifts from confusion to intuitive certainty."}},{"@type":"Question","name":"What industries does Will Turner speak for?","acceptedAnswer":{"@type":"Answer","text":"Will Turner speaks to leadership audiences across all industries. Simplexity is a universal concept — the penny drop works in financial services, healthcare, technology, retail, government, and professional services."}},{"@type":"Question","name":"How long is a Will Turner keynote?","acceptedAnswer":{"@type":"Answer","text":"Will Turner’s signature keynote runs 45–60 minutes and is fully customised to the organisation’s specific challenge. Workshop and half-day formats are also available."}},{"@type":"Question","name":"How do I book Will Turner as a keynote speaker?","acceptedAnswer":{"@type":"Answer","text":"Enquire through willturner.au/contact.html. Will works with event organisers and leadership teams directly to ensure every session is tailored to the room."}}]},{"@type":"Person","@id":"https://willturner.au/#will","name":"Will Turner","url":"https://willturner.au","jobTitle":"Keynote Speaker, Executive Coach, Trusted Advisor, Author","description":"Will Turner helps leaders cut through unconscious complexity and find the simple human truth at the centre of every challenge. Creator of Simplexity. Based in Brisbane, Australia.","address":{"@type":"PostalAddress","addressLocality":"Brisbane","addressRegion":"Queensland","addressCountry":"AU"}},{"@type":"Service","name":"Keynote Speaking","provider":{"@id":"https://willturner.au/#will"},"serviceType":"Keynote Speaking","description":"Will Turner delivers keynote talks on Simplexity — helping leaders find the simple human truth at the centre of every challenge.","areaServed":"Worldwide"}]}</script>
+<script src="main.js" defer></script>
 </body>
 </html>
