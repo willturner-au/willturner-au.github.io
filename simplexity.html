@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simplexity — The Idea That Changes Everything | Will Turner</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="description" content="Simplexity: finding the simple human truth inside every complex challenge. Will Turner's original framework — the Simplexity Matrix, unconscious complexity, and the penny drop.">
+<link rel="canonical" href="https://willturner.au/simplexity.html">
+<meta property="og:title" content="Simplexity — The Idea That Changes Everything | Will Turner">
+<meta property="og:description" content="Most leaders aren't dealing with genuine complexity. They're dealing with complexity they created themselves — without knowing it. Simplexity is the cure.">
+<meta property="og:url" content="https://willturner.au/simplexity.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://willturner.au/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Will Turner — Simplexity">
+<meta property="og:locale" content="en_AU">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* Simplexity page hero */
+.sx-hero {
+  padding: 11rem 4rem 6rem;
+  border-bottom: 0.5px solid var(--cream-10);
+  position: relative;
+  overflow: hidden;
+}
+.sx-hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,169,110,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+.sx-hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sx-hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 0.5px;
+  background: var(--gold);
+}
+.sx-hero-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(52px, 7.5vw, 100px);
+  font-weight: 700;
+  line-height: 0.97;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+}
+.sx-hero-headline em {
+  font-style: italic;
+  color: var(--gold);
+}
+.sx-hero-sub {
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--cream-60);
+  max-width: 560px;
+  font-weight: 300;
+  margin-bottom: 3rem;
+}
+.sx-hero-actions {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+/* The statement band */
+.statement-band {
+  padding: 5rem 4rem;
+  border-bottom: 0.5px solid var(--cream-10);
+  background: var(--shadow);
+}
+.statement-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3.5vw, 46px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--cream);
+  max-width: 780px;
+}
+.statement-text em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* Three-concept section */
+.concepts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--cream-10);
+  border-top: 0.5px solid var(--cream-10);
+  border-bottom: 0.5px solid var(--cream-10);
+}
+.concept-cell {
+  background: var(--ink);
+  padding: 3rem 2.5rem;
+  position: relative;
+}
+.concept-cell.gold-accent {
+  background: rgba(201,169,110,0.04);
+  border: 0.5px solid rgba(201,169,110,0.15);
+}
+.concept-num {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+.concept-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+.concept-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+.concept-body {
+  font-size: 16px;
+  color: var(--cream-40);
+  line-height: 1.75;
+}
+
+/* Pull quote — large */
+.pull-quote-large {
+  padding: 6rem 4rem;
+  text-align: center;
+  border-top: 0.5px solid var(--cream-10);
+  border-bottom: 0.5px solid var(--cream-10);
+  position: relative;
+}
+.pull-quote-large::before {
+  content: '\201C';
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Playfair Display', serif;
+  font-size: 120px;
+  color: var(--gold);
+  opacity: 0.12;
+  line-height: 1;
+  pointer-events: none;
+}
+.pull-quote-large p {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 3.5vw, 48px);
+  font-style: italic;
+  color: var(--cream);
+  max-width: 820px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.25;
+}
+.pull-quote-large cite {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-style: normal;
+}
+
+/* Science spine section */
+.science-section {
+  padding: 5rem 4rem;
+  border-bottom: 0.5px solid var(--cream-10);
+}
+.science-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--cream-10);
+  margin-top: 2rem;
+}
+.science-cell {
+  background: var(--shadow);
+  padding: 2.25rem 2rem;
+}
+.science-cell-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+.science-cell-body {
+  font-size: 15px;
+  color: var(--cream-40);
+  line-height: 1.75;
+}
+.science-cell-body strong {
+  color: var(--cream);
+  font-weight: 500;
+}
+
+/* Method steps */
+.method-steps {
+  padding: 5rem 4rem;
+  border-bottom: 0.5px solid var(--cream-10);
+}
+.method-step {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 0.5px solid var(--cream-10);
+  align-items: start;
+}
+.method-step:last-child { border-bottom: none; }
+.method-step-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--gold);
+  opacity: 0.3;
+  line-height: 1;
+}
+.method-step-content {}
+.method-step-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+.method-step-body {
+  font-size: 16px;
+  color: var(--cream-40);
+  line-height: 1.75;
+}
+
+/* Ashby callout */
+.ashby-callout {
+  background: rgba(201,169,110,0.05);
+  border: 0.5px solid rgba(201,169,110,0.2);
+  border-radius: 4px;
+  padding: 2.5rem 3rem;
+  margin: 3rem 4rem;
+}
+.ashby-callout-label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.ashby-callout-text {
+  font-size: 18px;
+  color: var(--cream-60);
+  line-height: 1.8;
+}
+.ashby-callout-text strong {
+  color: var(--cream);
+  font-weight: 500;
+}
+
+/* Mobile */
+@media(max-width:860px) {
+  .sx-hero { padding: 8rem 1.5rem 4rem; }
+  .statement-band { padding: 3rem 1.5rem; }
+  .concepts-grid { grid-template-columns: 1fr; }
+  .concept-cell { padding: 2.5rem 1.5rem; }
+  .pull-quote-large { padding: 4rem 1.5rem; }
+  .science-section { padding: 3rem 1.5rem; }
+  .science-grid { grid-template-columns: 1fr; }
+  .method-steps { padding: 3rem 1.5rem; }
+  .method-step { grid-template-columns: 48px 1fr; gap: 1rem; }
+  .method-step-num { font-size: 36px; }
+  .ashby-callout { margin: 2rem 1.5rem; padding: 2rem 1.5rem; }
+  .sx-hero-actions { flex-wrap: wrap; gap: 1rem; }
+}
+@media(max-width:560px) {
+  .sx-hero { padding: 7rem 1.25rem 3rem; }
+}
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3JH7PQW1F5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3JH7PQW1F5');
+</script>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo"><span class="logo-will">Will</span><span class="logo-turner"> Turner</span></a>
+    <ul class="nav-links">
+      <li><a href="simplexity.html" class="active">Simplexity</a></li>
+      <li><a href="speaking.html">Speaking</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="advisory.html">Advisory</a></li>
+      <li><a href="book.html">Book</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Work with Will</a>
+    <button class="nav-hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+  <div class="nav-mobile-inner" id="navMobile">
+    <a href="simplexity.html">Simplexity</a>
+    <a href="speaking.html">Speaking</a>
+    <a href="coaching.html">Coaching</a>
+    <a href="advisory.html">Advisory</a>
+    <a href="book.html">Book</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="nav-mobile-cta">Work with Will</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="sx-hero reveal">
+    <div class="sx-hero-eyebrow">The idea</div>
+    <h1 class="sx-hero-headline">The simple<br>truth inside<br><em>everything.</em></h1>
+    <p class="sx-hero-sub">Most leaders aren't dealing with genuine complexity. They're dealing with complexity they created themselves — without realising it. There's a name for that. And a cure.</p>
+    <div class="sx-hero-actions">
+      <a href="contact.html" class="btn-primary">Work with Will</a>
+      <a href="book.html" class="btn-ghost">Read the book &rarr;</a>
+    </div>
+  </section>
+
+  <!-- STATEMENT BAND -->
+  <div class="statement-band reveal">
+    <p class="statement-text">Complexity is almost always a choice. <em>So is clarity.</em> The leaders who get this move faster, decide better, and leave every room with people who know exactly what to do next.</p>
+  </div>
+
+  <!-- THREE CORE CONCEPTS -->
+  <div class="concepts-grid">
+    <div class="concept-cell reveal">
+      <div class="concept-num">Concept 01</div>
+      <h2 class="concept-title"><em>Simplexity</em></h2>
+      <p class="concept-body">Finding the simple human truth inside any complex challenge — and using it to move people forward. Not dumbing down. Not cutting corners. Rigour that arrives at clarity. Will Turner has been doing this for 20 years. He finally named it.</p>
+    </div>
+    <div class="concept-cell gold-accent reveal">
+      <div class="concept-num">Concept 02</div>
+      <h2 class="concept-title">Unconscious<br><em>Complexity</em></h2>
+      <p class="concept-body">The complexity leaders create beyond what the situation actually requires — without knowing they're doing it. The meeting that justifies itself. The strategy deck that explains the strategy deck. The process nobody questions. Will Turner coined this term. It names the enemy.</p>
+    </div>
+    <div class="concept-cell reveal">
+      <div class="concept-num">Concept 03</div>
+      <h2 class="concept-title">The Penny<br><em>Drop</em></h2>
+      <p class="concept-body">The moment unconscious complexity becomes visible and the simple truth becomes impossible to ignore. Recognition — not revelation. They always knew. Will just showed them where to look. It happens in every session, every room, every page.</p>
+    </div>
+  </div>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote-large reveal">
+    <p>"You are all about simplexity — making complex things simple. It is a real gift."</p>
+    <cite>Helen — London, 2011 — 15 years before Will named it</cite>
+  </div>
+
+  <!-- THE SIMPLEXITY MATRIX -->
+  <section class="matrix-section reveal">
+    <div class="section-label">The Simplexity Matrix &mdash; Will Turner's original IP</div>
+    <p style="font-size:18px;color:var(--cream-40);max-width:580px;line-height:1.8;margin-bottom:3rem;">Two axes. Four states. One diagonal. The entire body of work in a single image. Every leader starts somewhere. Will's job — in every session, every room, every page — is to move them from <strong style="color:var(--cream);">Fog to Focus.</strong></p>
+    <svg width="100%" viewBox="0 0 680 520" role="img" style="display:block;">
+      <title>The Simplexity Matrix</title>
+      <desc>A 2x2 matrix: Simple at top, Complex at bottom. Unconscious left, Conscious right. Fog (bottom-left, unconscious complexity) to Focus (top-right, conscious simplicity) via the penny drop.</desc>
+      <defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+      <rect x="40" y="40" width="280" height="200" rx="4" fill="#141210" stroke="rgba(240,237,230,0.07)" stroke-width="0.5"/>
+      <rect x="360" y="40" width="280" height="200" rx="4" fill="#1a1814" stroke="#c9a96e" stroke-width="1" opacity="0.95"/>
+      <rect x="40" y="270" width="280" height="200" rx="4" fill="#1a1814" stroke="rgba(201,169,110,0.4)" stroke-width="0.75" opacity="0.95"/>
+      <rect x="360" y="270" width="280" height="200" rx="4" fill="#141210" stroke="rgba(240,237,230,0.1)" stroke-width="0.5"/>
+      <text font-family="'Playfair Display',serif" font-size="15" font-weight="700" fill="rgba(240,237,230,0.45)" x="180" y="76" text-anchor="middle">Fluent</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(240,237,230,0.3)" x="180" y="96" text-anchor="middle">Unconscious simplicity</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(240,237,230,0.25)" x="180" y="116" text-anchor="middle">Simplicity as instinct. Mastery.</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(240,237,230,0.25)" x="180" y="134" text-anchor="middle">The leader on the other side.</text>
+      <text font-family="'Playfair Display',serif" font-size="15" font-weight="700" fill="#c9a96e" x="500" y="76" text-anchor="middle">Focus</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(240,237,230,0.5)" x="500" y="96" text-anchor="middle">Conscious simplicity</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(240,237,230,0.42)" x="500" y="116" text-anchor="middle">The simple truth is visible.</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(240,237,230,0.42)" x="500" y="134" text-anchor="middle">You know exactly what to do next.</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" font-weight="500" fill="rgba(201,169,110,0.9)" x="500" y="162" text-anchor="middle">Where Will takes you</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(240,237,230,0.25)" x="500" y="180" text-anchor="middle">Every session. Every room. Every page.</text>
+      <text font-family="'Playfair Display',serif" font-size="15" font-weight="700" fill="#c9a96e" x="180" y="306" text-anchor="middle">Fog</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(240,237,230,0.5)" x="180" y="326" text-anchor="middle">Unconscious complexity</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(240,237,230,0.38)" x="180" y="346" text-anchor="middle">Drowning in complexity you created.</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(240,237,230,0.38)" x="180" y="364" text-anchor="middle">You don't know it yet.</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" font-weight="500" fill="rgba(201,169,110,0.7)" x="180" y="392" text-anchor="middle">Where Will finds you</text>
+      <text font-family="'Playfair Display',serif" font-size="15" font-weight="700" fill="rgba(240,237,230,0.6)" x="500" y="306" text-anchor="middle">Frozen</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(240,237,230,0.35)" x="500" y="326" text-anchor="middle">Conscious complexity</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(240,237,230,0.28)" x="500" y="346" text-anchor="middle">You see the mess. You're stuck in it.</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(240,237,230,0.28)" x="500" y="364" text-anchor="middle">Aware. Paralysed. Can't find the way.</text>
+      <path d="M260 340 L440 170" stroke="#c9a96e" stroke-width="2.5" stroke-dasharray="6 4" fill="none" marker-end="url(#arr)"/>
+      <circle cx="350" cy="255" r="40" fill="#c9a96e"/>
+      <text font-family="'DM Sans',sans-serif" font-size="9" font-weight="500" fill="#0e0d0c" x="350" y="250" text-anchor="middle" letter-spacing="2">THE PENNY</text>
+      <text font-family="'DM Sans',sans-serif" font-size="9" font-weight="500" fill="#0e0d0c" x="350" y="263" text-anchor="middle" letter-spacing="2">DROP</text>
+      <text font-family="'DM Sans',sans-serif" font-size="10" font-weight="500" fill="rgba(240,237,230,0.2)" x="320" y="22" text-anchor="middle" letter-spacing="3">SIMPLICITY</text>
+      <text font-family="'DM Sans',sans-serif" font-size="10" font-weight="500" fill="rgba(240,237,230,0.2)" x="320" y="500" text-anchor="middle" letter-spacing="3">COMPLEXITY</text>
+      <text font-family="'DM Sans',sans-serif" font-size="10" font-weight="500" fill="rgba(240,237,230,0.2)" x="16" y="255" text-anchor="middle" transform="rotate(-90 16 255)" letter-spacing="2">UNCONSCIOUS</text>
+      <text font-family="'DM Sans',sans-serif" font-size="10" font-weight="500" fill="rgba(240,237,230,0.2)" x="664" y="255" text-anchor="middle" transform="rotate(90 664 255)" letter-spacing="2">CONSCIOUS</text>
+    </svg>
+    <div class="card" style="margin-top:2rem;background:var(--ink);border:0.5px solid var(--cream-10);border-radius:4px;padding:1.75rem;">
+      <div class="section-label">The journey</div>
+      <p style="font-size:16px;color:var(--cream-40);line-height:1.8;">Will moves leaders from <strong style="color:var(--cream);">Fog</strong> (unconscious complexity — you can't see it) to <strong style="color:var(--cream);">Focus</strong> (conscious simplicity — the simple truth is visible and you know exactly what to do next). The arrow is diagonal because the journey requires two shifts simultaneously: from unconscious to conscious, and from complex to simple. <strong style="color:var(--cream);">The penny drop is the crossing.</strong> Fluent is what comes after — simplicity so internalised it becomes instinct.</p>
+    </div>
+  </section>
+
+  <!-- ASHBY CALLOUT -->
+  <div class="ashby-callout reveal">
+    <div class="ashby-callout-label">The scientific spine</div>
+    <p class="ashby-callout-text"><strong>Ashby's Law of Requisite Variety (1956)</strong> — a system needs exactly as much complexity as the situation requires. No more. Unconscious complexity is a violation of this law. Will Turner is the person who democratises Ashby for leaders who've never heard of him — and uses it to show them precisely where their complexity is costing them.</p>
+  </div>
+
+  <!-- THE METHOD -->
+  <section class="method-steps reveal">
+    <div class="section-label">The Simplexity method</div>
+    <p style="font-size:18px;color:var(--cream-40);max-width:560px;line-height:1.8;margin-bottom:2rem;">Three steps. Every time. In every session, every room, every page.</p>
+    <div class="method-step">
+      <div class="method-step-num">01</div>
+      <div class="method-step-content">
+        <div class="method-step-title">Find the human moment</div>
+        <p class="method-step-body">Every business challenge has a universally human truth at its centre. The Chinese restaurant menu. The too-long email. The meeting everyone attends and nobody needs. Start there — because that's where the room meets you.</p>
+      </div>
+    </div>
+    <div class="method-step">
+      <div class="method-step-num">02</div>
+      <div class="method-step-content">
+        <div class="method-step-title">Use it to unlock the business truth</div>
+        <p class="method-step-body">Once the human truth is visible, the business application is inevitable. The same psychology that makes you freeze at 200 menu items is creating the paralysis in your strategy process. The simple answer was always in there.</p>
+      </div>
+    </div>
+    <div class="method-step">
+      <div class="method-step-num">03</div>
+      <div class="method-step-content">
+        <div class="method-step-title">Create the penny drop</div>
+        <p class="method-step-body">The moment a room changes. Recognition, not revelation — they already knew it. Will shows them where to look. It's not new information. It's remembering something true they lost access to. That's why it lands so hard. And why it lasts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCIENCE GRID -->
+  <section class="science-section reveal">
+    <div class="section-label">The research behind the matrix</div>
+    <p style="font-size:18px;color:var(--cream-40);max-width:580px;line-height:1.8;">This isn't intuition. Every quadrant is backed by a body of peer-reviewed research. Will Turner is the practitioner who makes it accessible — depth for the room, not the site.</p>
+    <div class="science-grid">
+      <div class="science-cell">
+        <div class="science-cell-label">Fog — unconscious complexity</div>
+        <p class="science-cell-body"><strong>Kahneman's WYSIATI</strong> — "What You See Is All There Is." System 1 has normalised the complexity so completely that leaders can't see it. <strong>Cognitive Load Theory</strong> (Sweller) confirms performance degrades once demands exceed working memory — but the person under load rarely knows it. McKinsey's research shows <strong>33% of transformation value is lost here.</strong></p>
+      </div>
+      <div class="science-cell">
+        <div class="science-cell-label">Frozen — conscious complexity</div>
+        <p class="science-cell-body"><strong>Paradox of Choice</strong> (Schwartz) — the leader sees the mess but awareness without a path creates paralysis. <strong>Decision Fatigue</strong> research shows sustained exposure to complexity degrades the quality of every subsequent decision. The frozen leader typically responds by adding more process. Ashby says the answer is the <em>right</em> variety, not more variety.</p>
+      </div>
+      <div class="science-cell">
+        <div class="science-cell-label">Focus — conscious simplicity</div>
+        <p class="science-cell-body"><strong>Klotz &amp; Nature (2021)</strong> — landmark finding that subtractive thinking requires active invitation. The penny drop is precisely that invitation. <strong>Dual Process Theory</strong> (Kahneman): the penny drop is a System 2 intervention that overrides the System 1 additive default. It feels obvious in retrospect — recognition, not revelation.</p>
+      </div>
+      <div class="science-cell">
+        <div class="science-cell-label">Fluent — unconscious simplicity</div>
+        <p class="science-cell-body"><strong>Csíkszentmihályi's Flow</strong> — effortless performance where complexity has been internalised. Ashby's Law in perfect equilibrium. The challenge: <strong>Status Quo Bias</strong> and <strong>Escalation of Commitment</strong> mean most leaders never reach Fluent — there is no direct path from Fog to Fluent. You must pass through Focus first.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFER GRID -->
+  <section class="offers-section reveal">
+    <div class="offers-header">
+      <h2 class="offers-headline">Experience<br><em>Simplexity</em></h2>
+      <a href="contact.html" class="btn-ghost">Start a conversation &rarr;</a>
+    </div>
+    <div class="offers-grid">
+      <div class="offer">
+        <div class="offer-num">01</div>
+        <div class="offer-name">Keynote Speaker</div>
+        <div class="offer-desc">Simplexity as a 60-minute experience. The penny drop for an entire room. Any industry, any leadership audience.</div>
+        <a href="speaking.html" class="offer-link">Book Will &rarr;</a>
+      </div>
+      <div class="offer">
+        <div class="offer-num">02</div>
+        <div class="offer-name">Executive Coach</div>
+        <div class="offer-desc">1:1. The penny drop in private. High value, low volume. Senior leaders who are too close to see clearly.</div>
+        <a href="coaching.html" class="offer-link">Enquire &rarr;</a>
+      </div>
+      <div class="offer">
+        <div class="offer-num">03</div>
+        <div class="offer-name">Trusted Advisor</div>
+        <div class="offer-desc">2–3 organisations at a time. Will Turner embedded — the person who sees the unconscious complexity and says so.</div>
+        <a href="advisory.html" class="offer-link">Learn more &rarr;</a>
+      </div>
+      <div class="offer">
+        <div class="offer-num">04</div>
+        <div class="offer-name">The Book</div>
+        <div class="offer-desc">Simplexity — The Simple Truth Inside Everything Complex. Will's intellectual stake in the ground. Coming 2026.</div>
+        <a href="book.html" class="offer-link">Register interest &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band reveal">
+    <h2 class="cta-headline">Ready for<br><em>the penny drop?</em></h2>
+    <p class="cta-sub">Whether you need a keynote, a coach, or a trusted voice in the room — start with a conversation.</p>
+    <div class="actions">
+      <a href="contact.html" class="btn-primary">Work with Will</a>
+      <a href="about.html" class="btn-ghost">Read Will's story &rarr;</a>
+    </div>
+  </div>
+
+  <div class="tagline-strip"><p>Every session. Every room. Every page. The penny drop.</p></div>
+  <div class="ticker"><div class="ticker-track">
+    <div class="ticker-item"><span class="ticker-word">Every Session</span><span class="ticker-dot"></span><span class="ticker-word">Every Room</span><span class="ticker-dot"></span><span class="ticker-word">Every Page</span><span class="ticker-dot"></span><span class="ticker-word">The Penny Drop</span><span class="ticker-dot"></span><span class="ticker-word">Simplexity</span><span class="ticker-dot"></span><span class="ticker-word">Will Turner</span><span class="ticker-dot"></span><span class="ticker-word">willturner.au</span><span class="ticker-dot"></span></div>
+    <div class="ticker-item"><span class="ticker-word">Every Session</span><span class="ticker-dot"></span><span class="ticker-word">Every Room</span><span class="ticker-dot"></span><span class="ticker-word">Every Page</span><span class="ticker-dot"></span><span class="ticker-word">The Penny Drop</span><span class="ticker-dot"></span><span class="ticker-word">Simplexity</span><span class="ticker-dot"></span><span class="ticker-word">Will Turner</span><span class="ticker-dot"></span><span class="ticker-word">willturner.au</span><span class="ticker-dot"></span></div>
+    <div class="ticker-item"><span class="ticker-word">Every Session</span><span class="ticker-dot"></span><span class="ticker-word">Every Room</span><span class="ticker-dot"></span><span class="ticker-word">Every Page</span><span class="ticker-dot"></span><span class="ticker-word">The Penny Drop</span><span class="ticker-dot"></span><span class="ticker-word">Simplexity</span><span class="ticker-dot"></span><span class="ticker-word">Will Turner</span><span class="ticker-dot"></span><span class="ticker-word">willturner.au</span><span class="ticker-dot"></span></div>
+  </div></div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-logo"><span class="logo-will">Will</span><span class="logo-turner"> Turner</span></div>
+      <div class="footer-copy">&copy; 2026 Will Turner &mdash; willturner.au</div>
+      <div class="footer-nav"><a href="speaking.html">Speaking</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+    </div>
+    <div class="footer-social-row">
+      <a href="https://www.linkedin.com/in/willturner" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://willturner.substack.com" target="_blank" rel="noopener">Substack</a>
+      <a href="https://www.youtube.com/@willturner_au" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/willturner_au" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://x.com/willturner_au" target="_blank" rel="noopener">X</a>
+      <a href="https://www.tiktok.com/@willturner_au" target="_blank" rel="noopener">TikTok</a>
+    </div>
+  </footer>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://willturner.au/"},{"@type":"ListItem","position":2,"name":"Simplexity","item":"https://willturner.au/simplexity.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Simplexity?","acceptedAnswer":{"@type":"Answer","text":"Simplexity is a discipline created by Will Turner for finding the simple human truth inside any complex challenge. It is built on the insight that most complexity is unconscious — leaders create it beyond what the situation requires, without knowing they are doing it."}},{"@type":"Question","name":"What is unconscious complexity?","acceptedAnswer":{"@type":"Answer","text":"Unconscious complexity is the complexity leaders create beyond what the situation actually requires, without knowing they are doing it. Will Turner coined this term as the named enemy at the centre of the Simplexity framework."}},{"@type":"Question","name":"What is the Simplexity Matrix?","acceptedAnswer":{"@type":"Answer","text":"The Simplexity Matrix is Will Turner's original framework mapping four leadership states: Fog (unconscious complexity — the starting point), Frozen (conscious complexity), Focus (conscious simplicity — the destination), and Fluent (unconscious simplicity — mastery). The penny drop is the moment of moving from Fog to Focus."}},{"@type":"Question","name":"What is the penny drop?","acceptedAnswer":{"@type":"Answer","text":"The penny drop is the moment unconscious complexity becomes visible and the simple truth becomes impossible to ignore. Will Turner engineers this moment in every keynote, coaching session, and advisory engagement."}}]},{"@type":"Person","@id":"https://willturner.au/#will","name":"Will Turner","url":"https://willturner.au","jobTitle":"Keynote Speaker, Executive Coach, Trusted Advisor, Author"}]}</script>
+<script src="main.js" defer></script>
+</body>
+</html>
