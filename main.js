@@ -1,6 +1,32 @@
 /* Will Turner — Simplexity | Main JS */
 (function(){
 
+  // ===== MODULAR FOOTER INJECTION =====
+  var footerEl = document.getElementById('site-footer');
+  if(footerEl){
+    footerEl.outerHTML = [
+      '<footer>',
+      '  <div class="footer-top">',
+      '    <div class="footer-logo"><span class="logo-will">Will</span><span class="logo-turner"> Turner</span></div>',
+      '    <div class="footer-copy">&copy; 2026 Will Turner &mdash; willturner.au</div>',
+      '    <div class="footer-nav">',
+      '      <a href="speaking.html">Speaking</a>',
+      '      <a href="about.html">About</a>',
+      '      <a href="contact.html">Contact</a>',
+      '    </div>',
+      '  </div>',
+      '  <div class="footer-social-row">',
+      '    <a href="https://www.linkedin.com/in/willturnersimplexity" target="_blank" rel="noopener">LinkedIn</a>',
+      '    <a href="https://willturner.substack.com" target="_blank" rel="noopener">Substack</a>',
+      '    <a href="https://www.youtube.com/@willturner_au" target="_blank" rel="noopener">YouTube</a>',
+      '    <a href="https://www.instagram.com/willturner_au" target="_blank" rel="noopener">Instagram</a>',
+      '    <a href="https://x.com/willturner_au" target="_blank" rel="noopener">X</a>',
+      '    <a href="https://www.tiktok.com/@willturner_au" target="_blank" rel="noopener">TikTok</a>',
+      '  </div>',
+      '</footer>'
+    ].join('\n');
+  }
+
   // ===== MOBILE NAV TOGGLE =====
   var b=document.getElementById('navToggle'),
       o=document.getElementById('navOverlay'),
