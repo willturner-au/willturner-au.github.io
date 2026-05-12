@@ -123,16 +123,7 @@
     ].join('\n');
   }
 
-  /* ─── 4. HERO IMAGE LOADER ───────────────────────────────────── */
-  var heroImg = document.getElementById('heroImg');
-  if (heroImg) {
-    var probe = new Image();
-    probe.onload  = function(){ heroImg.style.backgroundImage = 'url(hero-will-turner-keynote.webp)'; };
-    probe.onerror = function(){ heroImg.style.backgroundImage = 'url(hero-will-turner-keynote.jpg)'; };
-    probe.src = 'hero-will-turner-keynote.webp';
-  }
-
-  /* ─── 5. SCROLL REVEAL ──────────────────────────────────────── */
+  /* ─── 4. SCROLL REVEAL ──────────────────────────────────────── */
   var revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
   if (revealEls.length && 'IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function(entries){
