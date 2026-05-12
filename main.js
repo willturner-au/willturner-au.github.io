@@ -17,7 +17,7 @@
       '  </div>',
       '  <div class="footer-social-row">',
       '    <a href="https://www.linkedin.com/in/willturnersimplexity" target="_blank" rel="noopener">LinkedIn</a>',
-      '    <a href="https://willturner.substack.com" target="_blank" rel="noopener">Substack</a>',
+      '    <a href="https://substack.willturner.au" target="_blank" rel="noopener">Substack</a>',
       '    <a href="https://www.youtube.com/@willturner_au" target="_blank" rel="noopener">YouTube</a>',
       '    <a href="https://www.instagram.com/willturner_au" target="_blank" rel="noopener">Instagram</a>',
       '    <a href="https://x.com/willturner_au" target="_blank" rel="noopener">X</a>',
