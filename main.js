@@ -1,9 +1,112 @@
-/* Will Turner — Simplexity | Main JS */
+/* Will Turner — Simplexity | main.js
+   Single source of truth for all shared UI:
+   nav, mobile nav, tagline strip, ticker, footer.
+   Each page needs only: id="site-nav", id="site-pre-footer", id="site-footer"
+   ─────────────────────────────────────────────────────────────── */
 (function(){
 
-  // ===== MODULAR FOOTER INJECTION =====
+  /* ─── NAV LINKS (single source) ─────────────────────────────── */
+  var NAV_LINKS = [
+    { href: 'simplexity.html', label: 'Simplexity' },
+    { href: 'speaking.html',   label: 'Speaking'   },
+    { href: 'coaching.html',   label: 'Coaching'   },
+    { href: 'advisory.html',   label: 'Advisory'   },
+    { href: 'book.html',       label: 'Book'       },
+    { href: 'about.html',      label: 'About'      }
+  ];
+
+  /* ─── TICKER WORDS (single source) ──────────────────────────── */
+  var TICKER_WORDS = [
+    'Every Session', 'Every Room', 'Every Page',
+    'The Penny Drop', 'Simplexity', 'Will Turner', 'willturner.au'
+  ];
+
+  /* ─── SOCIAL LINKS (single source) ──────────────────────────── */
+  var SOCIAL_LINKS = [
+    { href: 'https://www.linkedin.com/in/willturnersimplexity', label: 'LinkedIn'  },
+    { href: 'https://substack.willturner.au',                   label: 'Substack'  },
+    { href: 'https://www.youtube.com/@willturner_au',           label: 'YouTube'   },
+    { href: 'https://www.instagram.com/willturner_au',          label: 'Instagram' },
+    { href: 'https://x.com/willturner_au',                      label: 'X'         },
+    { href: 'https://www.tiktok.com/@willturner_au',            label: 'TikTok'    }
+  ];
+
+  /* ─── HELPERS ────────────────────────────────────────────────── */
+  function el(tag, attrs, innerHTML) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function(k){ node.setAttribute(k, attrs[k]); });
+    if (innerHTML !== undefined) node.innerHTML = innerHTML;
+    return node;
+  }
+
+  var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+  /* ─── 1. INJECT NAV ─────────────────────────────────────────── */
+  var navEl = document.getElementById('site-nav');
+  if (navEl) {
+    var liItems = NAV_LINKS.map(function(link){
+      var isActive = link.href === currentPage;
+      return '<li><a href="' + link.href + '"' + (isActive ? ' class="active"' : '') + '>' + link.label + '</a></li>';
+    }).join('');
+
+    var mobileLinks = NAV_LINKS.map(function(link){
+      return '<a href="' + link.href + '">' + link.label + '</a>';
+    }).join('');
+
+    navEl.outerHTML = [
+      '<nav>',
+      '  <a href="index.html" class="nav-logo"><span class="logo-will">Will</span><span class="logo-turner"> Turner</span></a>',
+      '  <ul class="nav-links">' + liItems + '</ul>',
+      '  <a href="contact.html" class="nav-cta' + (currentPage === 'contact.html' ? ' active' : '') + '">Work with Will</a>',
+      '  <button class="nav-hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>',
+      '</nav>',
+      '<div class="nav-overlay" id="navOverlay"></div>',
+      '<div class="nav-mobile-inner" id="navMobile">',
+      mobileLinks,
+      '  <a href="contact.html" class="nav-mobile-cta">Work with Will</a>',
+      '</div>'
+    ].join('\n');
+
+    // Mobile nav toggle (bind after injection)
+    var btnEl  = document.getElementById('navToggle');
+    var ovrEl  = document.getElementById('navOverlay');
+    var mobEl  = document.getElementById('navMobile');
+    function setNav(open) {
+      btnEl.classList.toggle('open', open);
+      ovrEl.classList.toggle('open', open);
+      mobEl.classList.toggle('open', open);
+      btnEl.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+    btnEl.addEventListener('click', function(){ setNav(!ovrEl.classList.contains('open')); });
+    ovrEl.addEventListener('click', function(){ setNav(false); });
+    mobEl.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ setNav(false); });
+    });
+  }
+
+  /* ─── 2. INJECT TAGLINE STRIP + TICKER ──────────────────────── */
+  var preFooterEl = document.getElementById('site-pre-footer');
+  if (preFooterEl) {
+    var tickerItem = TICKER_WORDS.map(function(w, i){
+      return '<span class="ticker-word">' + w + '</span>' + (i < TICKER_WORDS.length - 1 ? '<span class="ticker-dot"></span>' : '');
+    }).join('');
+    // Three copies for seamless loop
+    var tickerHTML = [0,1,2].map(function(){ return '<div class="ticker-item">' + tickerItem + '</div>'; }).join('');
+
+    preFooterEl.outerHTML = [
+      '<div class="tagline-strip"><p>Every session. Every room. Every page. The penny drop.</p></div>',
+      '<div class="ticker"><div class="ticker-track">' + tickerHTML + '</div></div>'
+    ].join('\n');
+  }
+
+  /* ─── 3. INJECT FOOTER ──────────────────────────────────────── */
   var footerEl = document.getElementById('site-footer');
-  if(footerEl){
+  if (footerEl) {
+    var socialHTML = SOCIAL_LINKS.map(function(s){
+      return '<a href="' + s.href + '" target="_blank" rel="noopener">' + s.label + '</a>';
+    }).join('');
+
     footerEl.outerHTML = [
       '<footer>',
       '  <div class="footer-top">',
@@ -15,52 +118,26 @@
       '      <a href="contact.html">Contact</a>',
       '    </div>',
       '  </div>',
-      '  <div class="footer-social-row">',
-      '    <a href="https://www.linkedin.com/in/willturnersimplexity" target="_blank" rel="noopener">LinkedIn</a>',
-      '    <a href="https://substack.willturner.au" target="_blank" rel="noopener">Substack</a>',
-      '    <a href="https://www.youtube.com/@willturner_au" target="_blank" rel="noopener">YouTube</a>',
-      '    <a href="https://www.instagram.com/willturner_au" target="_blank" rel="noopener">Instagram</a>',
-      '    <a href="https://x.com/willturner_au" target="_blank" rel="noopener">X</a>',
-      '    <a href="https://www.tiktok.com/@willturner_au" target="_blank" rel="noopener">TikTok</a>',
-      '  </div>',
+      '  <div class="footer-social-row">' + socialHTML + '</div>',
       '</footer>'
     ].join('\n');
   }
 
-  // ===== MOBILE NAV TOGGLE =====
-  var b=document.getElementById('navToggle'),
-      o=document.getElementById('navOverlay'),
-      m=document.getElementById('navMobile');
-  if(b){
-    function t(x){
-      b.classList.toggle('open',x);
-      o.classList.toggle('open',x);
-      m.classList.toggle('open',x);
-      b.setAttribute('aria-expanded',x);
-      document.body.style.overflow=x?'hidden':'';
-    }
-    b.addEventListener('click',function(){t(!o.classList.contains('open'));});
-    o.addEventListener('click',function(){t(false);});
-    m.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click',function(){t(false);});
-    });
+  /* ─── 4. HERO IMAGE LOADER ───────────────────────────────────── */
+  var heroImg = document.getElementById('heroImg');
+  if (heroImg) {
+    var probe = new Image();
+    probe.onload  = function(){ heroImg.style.backgroundImage = 'url(hero-will-turner-keynote.webp)'; };
+    probe.onerror = function(){ heroImg.style.backgroundImage = 'url(hero-will-turner-keynote.jpg)'; };
+    probe.src = 'hero-will-turner-keynote.webp';
   }
 
-  // ===== HERO IMAGE LOADER (WebP with JPEG fallback) =====
-  var heroImg=document.getElementById('heroImg');
-  if(heroImg){
-    var img=new Image();
-    img.onload=function(){heroImg.style.backgroundImage='url(hero-will-turner-keynote.webp)';};
-    img.onerror=function(){heroImg.style.backgroundImage='url(hero-will-turner-keynote.jpg)';};
-    img.src='hero-will-turner-keynote.webp';
-  }
-
-  // ===== SCROLL REVEAL =====
+  /* ─── 5. SCROLL REVEAL ──────────────────────────────────────── */
   var revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
-  if(revealEls.length && 'IntersectionObserver' in window){
+  if (revealEls.length && 'IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
           observer.unobserve(entry.target);
         }
@@ -68,46 +145,29 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(function(el){ observer.observe(el); });
   } else {
-    // Fallback: show everything
     revealEls.forEach(function(el){ el.classList.add('is-visible'); });
   }
 
-  // ===== ACTIVE NAV LINK =====
-  var currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach(function(a){
-    var href = a.getAttribute('href');
-    if(href === currentPage || (currentPage === '' && href === 'index.html')){
-      a.classList.add('active');
-    }
-  });
-
-  // ===== EMAIL CAPTURE STRIP =====
+  /* ─── 6. EMAIL CAPTURE (homepage) ───────────────────────────── */
   var captureForm = document.getElementById('email-capture-form');
-  if(captureForm){
+  if (captureForm) {
     captureForm.addEventListener('submit', function(e){
       e.preventDefault();
       var emailInput = captureForm.querySelector('.email-capture-input');
-      var btn = captureForm.querySelector('.email-capture-btn');
-      if(!emailInput || !emailInput.value) return;
+      var btn        = captureForm.querySelector('.email-capture-btn');
+      if (!emailInput || !emailInput.value) return;
       btn.textContent = 'Sending...';
       btn.disabled = true;
-      // Submit to Kit (ConvertKit) form
-      var form = document.createElement('form');
-      form.method = 'POST';
-      form.action = 'https://app.kit.com/forms/9398374/subscriptions';
-      form.style.display = 'none';
-      var emailField = document.createElement('input');
-      emailField.type = 'hidden';
-      emailField.name = 'email_address';
-      emailField.value = emailInput.value;
-      var redirect = document.createElement('input');
-      redirect.type = 'hidden';
-      redirect.name = 'redirect_to';
-      redirect.value = 'https://willturner.au/book-thankyou.html';
-      form.appendChild(emailField);
-      form.appendChild(redirect);
-      document.body.appendChild(form);
-      form.submit();
+      var f = document.createElement('form');
+      f.method = 'POST';
+      f.action = 'https://app.kit.com/forms/9398374/subscriptions';
+      f.style.display = 'none';
+      var fEmail = document.createElement('input');
+      fEmail.type  = 'hidden'; fEmail.name  = 'email_address'; fEmail.value = emailInput.value;
+      var fRedir = document.createElement('input');
+      fRedir.type  = 'hidden'; fRedir.name  = 'redirect_to'; fRedir.value = 'https://willturner.au/book-thankyou.html';
+      f.appendChild(fEmail); f.appendChild(fRedir);
+      document.body.appendChild(f); f.submit();
     });
   }
 
