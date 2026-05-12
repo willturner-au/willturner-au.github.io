@@ -803,18 +803,21 @@ nav { animation: fadeDown 0.8s ease both; }
      SECTION 1 — HERO
      ============================================================ -->
 <section class="hero">
-  <picture class="hero-image" aria-hidden="true">
-    <source srcset="hero-will-turner-keynote-mobile.webp" type="image/webp" media="(max-width:860px)">
-    <img
-      src="hero-will-turner-keynote.webp"
-      alt="Will Turner keynote speaker on stage"
-      width="1920" height="1080"
-      fetchpriority="high"
-      loading="eager"
-      decoding="async"
-      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;"
-    >
-  </picture>
+<picture class="hero-image" aria-hidden="true">
+  <source srcset="hero-will-turner-keynote-mobile.avif" type="image/avif" media="(max-width:860px)">
+  <source srcset="hero-will-turner-keynote-mobile.webp" type="image/webp" media="(max-width:860px)">
+  <source srcset="hero-will-turner-keynote.avif" type="image/avif">
+  <source srcset="hero-will-turner-keynote.webp" type="image/webp">
+  <img
+    src="hero-will-turner-keynote.jpg"
+    alt="Will Turner keynote speaker on stage"
+    width="1920" height="1080"
+    fetchpriority="high"
+    loading="eager"
+    decoding="async"
+    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;">
+</picture>
+
   <div class="hero-content">
     <div class="hero-kicker">Will Turner &mdash; Creator of Simplexity</div>
     <h1 class="hero-headline">Complexity<br>is a choice.<br><em>So is clarity.</em></h1>
