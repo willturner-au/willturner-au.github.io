@@ -79,11 +79,38 @@
     .logo-will { font-style: italic; font-weight: 400; color: var(--cream); }
     .logo-turner { font-style: normal; font-weight: 700; color: var(--gold); }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-40); text-decoration: none; transition: color 0.25s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--cream); }
-    /* Simplexity nav item — gold highlight */
-    .nav-links a[href="simplexity.html"] { color: var(--gold); }
-    .nav-links a[href="simplexity.html"]:hover { opacity: 0.8; }
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream-40);
+      text-decoration: none;
+      transition: color 0.25s;
+      position: relative;
+      padding-bottom: 3px;
+    }
+    /* Hover: lift to cream */
+    .nav-links a:hover { color: var(--cream); }
+    /* Active: cream + gold underline dot */
+    .nav-links a.active {
+      color: var(--cream);
+    }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    /* Simplexity nav item — always gold, active gets the dot too */
+    .nav-links a[href='simplexity.html'],
+    .nav-links a[href='simplexity.html'].active { color: var(--gold); }
+    .nav-links a[href='simplexity.html']:hover { color: var(--gold); opacity: 0.75; }
+    .nav-links a[href='simplexity.html'].active::after { background: var(--gold); }
     .nav-cta { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; color: var(--ink); background: var(--gold); padding: 0.6rem 1.5rem; border-radius: 2px; text-decoration: none; transition: opacity 0.2s; }
     .nav-cta:hover { opacity: 0.85; }
     .section-label { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
@@ -354,8 +381,12 @@
       .nav-overlay.open{opacity:1;pointer-events:all}
       .nav-mobile-inner{display:flex;position:fixed;inset:0;z-index:160;flex-direction:column;align-items:center;justify-content:center;gap:2.75rem;opacity:0;pointer-events:none;transition:opacity .3s .05s}
       .nav-mobile-inner.open{opacity:1;pointer-events:all}
-      .nav-mobile-inner a{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--cream);text-decoration:none;letter-spacing:.02em;transition:color .2s}
-      .nav-mobile-inner a:hover{color:var(--gold)}
+      .nav-mobile-inner a{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--cream-40);text-decoration:none;letter-spacing:.02em;transition:color .2s;position:relative;display:inline-block;}
+      .nav-mobile-inner a:hover{color:var(--cream)}
+      .nav-mobile-inner a.active{color:var(--cream);}
+      .nav-mobile-inner a.active::before{content:'—';font-family:'DM Sans',sans-serif;font-size:16px;font-weight:300;color:var(--gold);position:absolute;left:-2rem;top:50%;transform:translateY(-50%);letter-spacing:0;}
+      /* Simplexity in mobile — always gold */
+      .nav-mobile-inner a[href='simplexity.html'],.nav-mobile-inner a[href='simplexity.html'].active{color:var(--gold);}
       .nav-mobile-cta{font-family:'DM Sans',sans-serif!important;font-size:12px!important;letter-spacing:.14em;text-transform:uppercase;font-weight:500!important;color:var(--ink)!important;background:var(--gold)!important;padding:.85rem 2.5rem!important;border-radius:2px!important}
       .nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
       .nav-hamburger.open span:nth-child(2){opacity:0}

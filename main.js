@@ -39,7 +39,9 @@
     return node;
   }
 
-  var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  // Normalise current page: root path ('/' or '') maps to 'index.html'
+  var rawPage = window.location.pathname.split('/').pop();
+  var currentPage = (rawPage === '' || rawPage === undefined) ? 'index.html' : rawPage;
 
   /* ─── 1. INJECT NAV ─────────────────────────────────────────── */
   var navEl = document.getElementById('site-nav');
@@ -50,7 +52,8 @@
     }).join('');
 
     var mobileLinks = NAV_LINKS.map(function(link){
-      return '<a href="' + link.href + '">' + link.label + '</a>';
+      var isActive = link.href === currentPage;
+      return '<a href="' + link.href + '"' + (isActive ? ' class="active"' : '') + '>' + link.label + '</a>';
     }).join('');
 
     navEl.outerHTML = [
