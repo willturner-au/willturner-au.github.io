@@ -89,7 +89,7 @@
     .section-label { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
     .btn-primary { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; color: var(--ink); background: var(--gold); padding: 0.9rem 2rem; border-radius: 2px; text-decoration: none; display: inline-block; transition: opacity 0.2s; }
     .btn-primary:hover { opacity: 0.85; }
-    .btn-ghost { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-40); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.25s; }
+    .btn-ghost { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-60); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.25s; }
     .btn-ghost:hover { color: var(--cream); }
     .divider { border: none; border-top: 0.5px solid var(--cream-10); margin: 0; }
     .body-text { font-size: 18px; line-height: 1.85; color: var(--cream-60); margin-bottom: 1.5rem; }
@@ -250,15 +250,15 @@
     footer { border-top: 0.5px solid var(--cream-10); padding: 2.5rem 4rem; display: flex; flex-direction: column; gap: 1.25rem; }
     .footer-top { display: flex; justify-content: space-between; align-items: center; }
     .footer-logo { font-family: 'Playfair Display', serif; font-size: 15px; }
-    .footer-logo .logo-will { font-style: italic; font-weight: 400; color: var(--cream-40); }
-    .footer-logo .logo-turner { font-weight: 700; color: rgba(201,169,110,0.5); }
-    .footer-copy { font-size: 11px; color: var(--cream-20); letter-spacing: 0.08em; }
+    .footer-logo .logo-will { font-style: italic; font-weight: 400; color: var(--cream-60); }
+    .footer-logo .logo-turner { font-weight: 700; color: rgba(201,169,110,0.75); }
+    .footer-copy { font-size: 11px; color: var(--cream-40); letter-spacing: 0.08em; }
     .footer-nav { display: flex; gap: 2rem; }
-    .footer-nav a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream-20); text-decoration: none; transition: color 0.2s; }
-    .footer-nav a:hover { color: var(--cream-40); }
+    .footer-nav a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream-40); text-decoration: none; transition: color 0.2s; }
+    .footer-nav a:hover { color: var(--cream-60); }
     .footer-social-row { display: flex; gap: 0; align-items: center; padding-top: 1rem; border-top: 0.5px solid var(--cream-10); }
-    .footer-social-row a { font-size: 11px; letter-spacing: 0.1em; color: rgba(240,237,230,0.22); text-decoration: none; transition: color 0.2s; padding-right: 1.5rem; }
-    .footer-social-row a:hover { color: var(--cream-40); }
+    .footer-social-row a { font-size: 11px; letter-spacing: 0.1em; color: var(--cream-40); text-decoration: none; transition: color 0.2s; padding-right: 1.5rem; }
+    .footer-social-row a:hover { color: var(--cream-60); }
     .footer-social-row a + a { padding-left: 1.5rem; padding-right: 1.5rem; border-left: 0.5px solid var(--cream-10); }
     .footer-social-row a:last-child { padding-right: 0; }
 
