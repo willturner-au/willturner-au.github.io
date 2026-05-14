@@ -31,7 +31,11 @@
 <meta name="author" content="Will Turner">
 <meta name="keywords" content="book Will Turner, contact Will Turner, Will Turner enquiry, keynote speaker Brisbane contact, executive coach Brisbane enquiry">
 <link rel="preload" href="fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/dm-sans-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/dm-sans-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/playfair-display-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-400italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 <style>
 .contact-wrap {
@@ -401,14 +405,19 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 <div id="site-footer"></div>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://willturner.au/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://willturner.au/contact.html"}]},{"@type":"Person","@id":"https://willturner.au/#will","name":"Will Turner","url":"https://willturner.au","jobTitle":"Keynote Speaker, Executive Coach, Trusted Advisor, Author","description":"Will Turner helps leaders cut through unconscious complexity and find the simple human truth at the centre of every challenge. Creator of Simplexity. Based in Brisbane, Australia.","address":{"@type":"PostalAddress","addressLocality":"Brisbane","addressRegion":"Queensland","addressCountry":"AU"}},{"@type":"ContactPage","name":"Work with Will Turner","url":"https://willturner.au/contact.html"}]}</script>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3JH7PQW1F5"></script>
+<!-- Google Analytics — deferred until after page load -->
 <script>
   window.addEventListener('load', function(){
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3JH7PQW1F5');
+    var s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-3JH7PQW1F5';
+    s.defer = true;
+    document.head.appendChild(s);
+    s.onload = function(){
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3JH7PQW1F5');
+    };
   });
 </script>
 <script src="main.js" defer></script>
