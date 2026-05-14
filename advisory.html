@@ -35,6 +35,17 @@
 <link rel="preload" href="fonts/playfair-display-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 <style>
+  /* Advisory framework image */
+  .advisory-framework-wrap { display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:0.5px solid var(--cream-10); }
+  .advisory-framework-img { position:relative;height:420px;overflow:hidden; }
+  .advisory-framework-img img { width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:transform 0.6s ease; }
+  .advisory-framework-img:hover img { transform:scale(1.02); }
+  .advisory-framework-overlay { position:absolute;inset:0;background:linear-gradient(to top,rgba(14,13,12,0.65) 0%,rgba(14,13,12,0.0) 50%); }
+  .advisory-framework-caption { position:absolute;bottom:0;left:0;right:0;padding:1.75rem 2rem; }
+  .advisory-framework-label { font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem; }
+  .advisory-framework-text { font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:var(--cream);line-height:1.4; }
+  .advisory-framework-copy { padding:3rem 2rem;display:flex;flex-direction:column;justify-content:center; }
+  @media(max-width:768px){ .advisory-framework-wrap{grid-template-columns:1fr;} .advisory-framework-img{height:280px;} }
   /* Advisory hero image */
   .advisory-hero-img-wrap { position:relative;height:480px;overflow:hidden;border-bottom:0.5px solid var(--cream-10); }
   .advisory-hero-img { width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block; }
@@ -76,6 +87,26 @@
     <div class="principle-row"><div class="p-num">&mdash;</div><div class="p-text"><strong>The outside view.</strong> Too close to your own complexity to see the simple truth? Will sees it immediately &mdash; and knows how to show it to you without the politics.</div></div>
     <div class="principle-row"><div class="p-num">&mdash;</div><div class="p-text"><strong>The honest voice.</strong> The room is full of people who won't tell you the truth. Will is the one who will &mdash; with care, directness, and your best interests at heart.</div></div>
     <div class="principle-row"><div class="p-num">&mdash;</div><div class="p-text"><strong>Pattern recognition across industries.</strong> 25+ years across sectors means Will brings perspective your internal team simply can't.</div></div>
+  </div>
+</div>
+<!-- Framework image — complexity becoming simple -->
+<div class="advisory-framework-wrap reveal">
+  <div class="advisory-framework-img">
+    <picture>
+      <source srcset="speaking-simplexity-framework.avif" type="image/avif">
+      <source srcset="speaking-simplexity-framework.webp" type="image/webp">
+      <img src="speaking-simplexity-framework.webp" alt="Will Turner mapping the Simplexity framework — complexity becoming visible and simple" loading="lazy">
+    </picture>
+    <div class="advisory-framework-overlay"></div>
+    <div class="advisory-framework-caption">
+      <div class="advisory-framework-label">The diagnostic</div>
+      <div class="advisory-framework-text">Complexity made visible.<br>The simple truth, impossible to ignore.</div>
+    </div>
+  </div>
+  <div class="advisory-framework-copy">
+    <div class="section-label">How Will sees what others miss</div>
+    <p class="body-text">Every complex organisation has a simple truth at its centre. Will's role is to find it — to map the noise, identify the unconscious complexity, and show the leadership team exactly where the penny drop needs to happen.</p>
+    <p class="body-text">This is not a workshop exercise. It happens in your meetings, your strategy sessions, and your board conversations — in real time, with real consequence.</p>
   </div>
 </div>
 <section class="matrix-section">

@@ -39,16 +39,16 @@
 .hero-img-wrap { position:relative;height:540px;overflow:hidden;border-bottom:0.5px solid var(--cream-10); }
   .hero-img { width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block; }
   .hero-img-overlay { position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,13,12,0.1) 0%,rgba(14,13,12,0.5) 100%); }
-  /* Penny-drop proof strip */
-  .penny-drop-proof { display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:0.5px solid var(--cream-10);border-bottom:0.5px solid var(--cream-10); }
-  .penny-drop-proof-img { position:relative;height:400px;overflow:hidden; }
-  .penny-drop-proof-img img { width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:transform 0.6s ease; }
-  .penny-drop-proof-img:hover img { transform:scale(1.03); }
-  .penny-drop-proof-overlay { position:absolute;inset:0;background:linear-gradient(to top,rgba(14,13,12,0.75) 0%,rgba(14,13,12,0.0) 55%); }
-  .penny-drop-proof-caption { position:absolute;bottom:0;left:0;right:0;padding:1.5rem 2rem; }
-  .penny-drop-caption-label { font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem; }
-  .penny-drop-caption-text { font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--cream);line-height:1.4; }
-  @media(max-width:768px){ .penny-drop-proof{grid-template-columns:1fr;} .penny-drop-proof-img{height:280px;} }
+  /* Audience reaction strip — full width single image */
+  .penny-drop-proof { border-top:0.5px solid var(--cream-10);border-bottom:0.5px solid var(--cream-10); }
+  .penny-drop-proof-img { position:relative;height:460px;overflow:hidden; }
+  .penny-drop-proof-img img { width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block;transition:transform 0.6s ease; }
+  .penny-drop-proof-img:hover img { transform:scale(1.02); }
+  .penny-drop-proof-overlay { position:absolute;inset:0;background:linear-gradient(to top,rgba(14,13,12,0.7) 0%,rgba(14,13,12,0.0) 50%); }
+  .penny-drop-proof-caption { position:absolute;bottom:0;left:0;right:0;padding:2rem 4rem; }
+  .penny-drop-caption-label { font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem; }
+  .penny-drop-caption-text { font-family:'Playfair Display',serif;font-style:italic;font-size:20px;color:var(--cream);line-height:1.4;max-width:560px; }
+  @media(max-width:768px){ .penny-drop-proof-img{height:280px;} .penny-drop-proof-caption{padding:1.5rem;} .penny-drop-caption-text{font-size:16px;} }
   .talk-card { background:var(--shadow);border:0.5px solid var(--cream-10);border-radius:4px;padding:1.75rem;margin-bottom:10px; }
   .talk-num { font-size:10px;color:var(--gold);letter-spacing:0.15em;margin-bottom:0.75rem; }
   .talk-name { font-family:'Playfair Display',serif;font-size:22px;color:var(--cream);margin-bottom:0.5rem;font-weight:700; }
@@ -125,25 +125,13 @@
     <div class="principle-row"><span class="p-num">—</span><span class="p-text"><strong>Location</strong> — Based in Brisbane, Australia. Travels nationally and internationally.</span></div>
   </div>
 </div>
-<!-- Penny-drop proof: method + audience reaction -->
+<!-- Audience reaction — full width -->
 <div class="penny-drop-proof reveal">
-  <div class="penny-drop-proof-img">
-    <picture>
-      <source srcset="speaking-simplexity-framework.avif" type="image/avif">
-      <source srcset="speaking-simplexity-framework.webp" type="image/webp">
-      <img src="speaking-simplexity-framework.webp" alt="Will Turner sketching the Simplexity framework — Human Moment, Business Truth, Penny Drop" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:transform 0.6s ease;">
-    </picture>
-    <div class="penny-drop-proof-overlay"></div>
-    <div class="penny-drop-proof-caption">
-      <div class="penny-drop-caption-label">The method</div>
-      <div class="penny-drop-caption-text">Engineered, not improvised.</div>
-    </div>
-  </div>
   <div class="penny-drop-proof-img">
     <picture>
       <source srcset="speaking-audience-penny-drop.avif" type="image/avif">
       <source srcset="speaking-audience-penny-drop.webp" type="image/webp">
-      <img src="speaking-audience-penny-drop.webp" alt="Conference audience leaning forward, experiencing the penny drop moment" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:transform 0.6s ease;">
+      <img src="speaking-audience-penny-drop.webp" alt="Conference audience leaning forward, experiencing the penny drop moment" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block;">
     </picture>
     <div class="penny-drop-proof-overlay"></div>
     <div class="penny-drop-proof-caption">
