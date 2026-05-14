@@ -237,18 +237,18 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 <!-- NAV -->
 <div id="site-nav"></div>
 
-<!-- HERO — penny drop coin -->
-<div style="position:relative;background:var(--ink);border-bottom:0.5px solid var(--cream-10);padding:7rem 4rem 5rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;">
-  <!-- Coin centred behind the text -->
-  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;">
+<!-- HERO -->
+<div class="page-hero" style="position:relative;overflow:hidden;">
+  <!-- Coin — right side, partially cropped, purely decorative -->
+  <div style="position:absolute;right:-4rem;top:50%;transform:translateY(-50%);pointer-events:none;" aria-hidden="true">
     <picture>
       <source srcset="penny-drop-coin.avif" type="image/avif">
       <source srcset="penny-drop-coin.webp" type="image/webp">
-      <img src="penny-drop-coin.webp" alt="" aria-hidden="true" loading="eager" style="width:min(520px,80vw);height:auto;display:block;opacity:0.55;">
+      <img src="penny-drop-coin.webp" alt="" style="width:420px;height:auto;display:block;opacity:0.45;">
     </picture>
   </div>
-  <!-- Content over coin -->
-  <div style="position:relative;z-index:2;max-width:600px;">
+  <!-- Hero text — unchanged -->
+  <div style="position:relative;z-index:2;">
     <div class="page-eyebrow">Work with Will</div>
     <h1 class="page-headline">Start with<br><em>a conversation.</em></h1>
     <p class="page-sub">Every session. Every room. Every page. The penny drop. Tell Will what you're working on &mdash; he'll come back to you directly.</p>
