@@ -47,6 +47,23 @@
   <img src="hero-will-turner-keynote.webp" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;" alt="Will Turner on stage" onerror="this.src=\'hero-will-turner-keynote.jpg\'">
   <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(14,13,12,0.65) 0%,rgba(14,13,12,0.1) 60%);"></div>
 </div>
+<style>
+  .about-portrait-wrap { position:relative;height:520px;overflow:hidden;border-bottom:0.5px solid var(--cream-10); }
+  .about-portrait-img { width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block; }
+  .about-portrait-overlay { position:absolute;inset:0;background:linear-gradient(to right,rgba(14,13,12,0.0) 40%,rgba(14,13,12,0.55) 100%); }
+  @media(max-width:768px){ .about-portrait-wrap{height:360px;} }
+</style>
+
+<!-- Environmental portrait -->
+<div class="about-portrait-wrap reveal">
+  <picture>
+    <source srcset="about-portrait.avif" type="image/avif">
+    <source srcset="about-portrait.webp" type="image/webp">
+    <img class="about-portrait-img" src="about-portrait.webp" alt="Will Turner, Brisbane CBD" loading="lazy">
+  </picture>
+  <div class="about-portrait-overlay"></div>
+</div>
+
 <div class="two-col">
   <div class="col col-bordered">
     <div class="section-label">The story</div>
