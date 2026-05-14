@@ -579,9 +579,10 @@
 
 /* ── Logo image ── */
 .proof-logo-img {
-  max-height: 32px;
-  max-width: 110px;
+  max-height: 36px;
+  max-width: 130px;
   width: auto;
+  height: auto;
   object-fit: contain;
   opacity: 0.22;
   filter: grayscale(100%) brightness(3);
@@ -591,6 +592,32 @@
 .proof-logo-cell:hover .proof-logo-img {
   opacity: 0.8;
   filter: grayscale(0%) brightness(1);
+}
+/* Black-on-white logos: invert so they show as white on dark background */
+.proof-logo-img[src*="Queensland-Government"] {
+  max-height: 44px;
+  max-width: 180px;
+  filter: invert(1) grayscale(100%) brightness(2);
+}
+.proof-logo-cell:hover .proof-logo-img[src*="Queensland-Government"] {
+  filter: invert(1) grayscale(0%) brightness(1);
+}
+/* Square / icon logos need more height */
+.proof-logo-img[src*="news-corp"],
+.proof-logo-img[src*="gov-uk"] {
+  max-height: 56px;
+  max-width: 56px;
+}
+/* Wide logos */
+.proof-logo-img[src*="eftpos"],
+.proof-logo-img[src*="best-western"],
+.proof-logo-img[src*="tourism-and-events"] {
+  max-width: 150px;
+}
+/* Small logos — give more room */
+.proof-logo-img[src*="VTIC"] {
+  max-height: 48px;
+  max-width: 120px;
 }
 
 /* ── Fallback: text name when image is missing ── */
