@@ -34,7 +34,13 @@
 <link rel="preload" href="fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/playfair-display-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
-<link rel="alternate" type="text/plain" title="AI-readable summary" href="https://willturner.au/llms.txt">
+<style>
+  /* Coaching hero image */
+  .coaching-hero-img-wrap { position:relative;height:480px;overflow:hidden;border-bottom:0.5px solid var(--cream-10); }
+  .coaching-hero-img { width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block; }
+  .coaching-hero-img-overlay { position:absolute;inset:0;background:linear-gradient(to right,rgba(14,13,12,0.55) 0%,rgba(14,13,12,0.05) 70%); }
+  @media(max-width:768px){ .coaching-hero-img-wrap{height:300px;} }
+</style>
 </head>
 <body>
   <div id="site-nav"></div>
@@ -42,6 +48,15 @@
   <div class="page-eyebrow">Executive Coaching</div>
   <h1 class="page-headline">High value.<br><em>The penny drop. 1:1.</em></h1>
   <p class="page-sub">Will works with a small number of senior leaders at a time &mdash; one-on-one, deeply, over time. He helps them see the unconscious complexity they've created, find the simple truth inside it, and leave every session knowing exactly what to do next.</p>
+</div>
+<!-- Coaching hero image -->
+<div class="coaching-hero-img-wrap reveal">
+  <picture>
+    <source srcset="coaching-one-to-one.avif" type="image/avif">
+    <source srcset="coaching-one-to-one.webp" type="image/webp">
+    <img class="coaching-hero-img" src="coaching-one-to-one.webp" alt="Will Turner in a one-to-one executive coaching conversation with a senior leader" loading="lazy">
+  </picture>
+  <div class="coaching-hero-img-overlay"></div>
 </div>
 <div class="two-col">
   <div class="col col-bordered">
