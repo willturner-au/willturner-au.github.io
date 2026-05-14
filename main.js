@@ -39,9 +39,10 @@
     return node;
   }
 
-  // Normalise current page: root path ('/' or '') maps to 'index.html'
+  // Normalise current page: root path maps to 'index.html'; Cloudflare strips .html extensions so re-add if missing
   var rawPage = window.location.pathname.split('/').pop();
-  var currentPage = (rawPage === '' || rawPage === undefined) ? 'index.html' : rawPage;
+  var currentPage = (rawPage === '' || rawPage === undefined) ? 'index.html'
+    : (rawPage.indexOf('.') === -1 ? rawPage + '.html' : rawPage);
 
   /* ─── 1. INJECT NAV ─────────────────────────────────────────── */
   var navEl = document.getElementById('site-nav');
