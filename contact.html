@@ -244,6 +244,31 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   <p class="page-sub">Every session. Every room. Every page. The penny drop. Tell Will what you're working on &mdash; he'll come back to you directly.</p>
 </div>
 
+<!-- Penny drop — the conversation starts here -->
+<div style="position:relative;background:var(--ink);border-top:0.5px solid var(--cream-10);border-bottom:0.5px solid var(--cream-10);padding:4rem;display:flex;align-items:center;justify-content:center;overflow:hidden;" class="reveal">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:900px;width:100%;">
+    <div style="display:flex;align-items:center;justify-content:center;">
+      <picture>
+        <source srcset="penny-drop-coin.avif" type="image/avif">
+        <source srcset="penny-drop-coin.webp" type="image/webp">
+        <img src="penny-drop-coin.webp" alt="The penny drop — a suspended coin under spotlight" loading="lazy" style="max-width:320px;width:100%;height:auto;display:block;">
+      </picture>
+    </div>
+    <div>
+      <div style="font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;">The conversation starts here</div>
+      <div style="font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,42px);font-weight:700;color:var(--cream);line-height:1.1;margin-bottom:1.25rem;">Every penny drop<br>begins with<br><em style="color:var(--gold);">a conversation.</em></div>
+      <p style="font-size:17px;color:var(--cream-40);line-height:1.8;">Will reads every message himself. If there's a fit, he'll suggest a short call &mdash; no pitch, just a conversation to find the simple truth about whether working together makes sense.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  @media(max-width:768px){
+    .contact-coin-grid { grid-template-columns:1fr !important; }
+    .contact-coin-grid > div:first-child { display:none !important; }
+  }
+</style>
+
 <!-- CONTACT TWO-COLUMN -->
 <div class="contact-wrap">
 
@@ -378,7 +403,6 @@ textarea.form-input { resize: vertical; min-height: 120px; }
     <!-- What happens next -->
     <div class="next-section">
       <div class="section-label">What happens next</div>
-      <p style="font-size:17px;color:var(--cream-40);line-height:1.8;margin-bottom:1rem;">Will reads every message himself. If there's a fit, he'll suggest a short call &mdash; no pitch, just a conversation to find the simple truth about whether working together makes sense.</p>
       <p style="font-size:17px;color:var(--cream-40);line-height:1.8;">Will is selective about the engagements he takes on. That's not arrogance &mdash; it's how he protects the quality of the penny drop.</p>
     </div>
 
