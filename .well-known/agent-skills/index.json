@@ -1,0 +1,41 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "skills": [
+    {
+      "name": "keynote-speaking",
+      "type": "information",
+      "description": "Information about Will Turner's keynote speaking on Simplexity — topics covered, audience types, formats (45–60 min keynote, workshop, half-day), and how to make an enquiry.",
+      "url": "https://willturner.au/speaking"
+    },
+    {
+      "name": "executive-coaching",
+      "type": "information",
+      "description": "Information about Will Turner's 1:1 executive coaching for senior leaders — the penny drop in private. High-value, low-volume engagements.",
+      "url": "https://willturner.au/coaching"
+    },
+    {
+      "name": "trusted-advisory",
+      "type": "information",
+      "description": "Information about Will Turner's trusted advisor service — embedded in 2–3 organisations at a time as the person who sees unconscious complexity and says so.",
+      "url": "https://willturner.au/advisory"
+    },
+    {
+      "name": "simplexity-framework",
+      "type": "information",
+      "description": "Full explanation of the Simplexity framework — unconscious complexity, the penny drop, and the Simplexity Matrix (Fog, Frozen, Focus, Fluent). Original IP by Will Turner.",
+      "url": "https://willturner.au/simplexity"
+    },
+    {
+      "name": "book-registration",
+      "type": "information",
+      "description": "Information about Will Turner's forthcoming book — Simplexity: The Simple Truth Inside Everything Complex — arriving Q1 2027. Register interest.",
+      "url": "https://willturner.au/book"
+    },
+    {
+      "name": "contact",
+      "type": "action",
+      "description": "Contact Will Turner to enquire about keynote speaking, executive coaching, or trusted advisory.",
+      "url": "https://willturner.au/contact"
+    }
+  ]
+}

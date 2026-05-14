@@ -13,6 +13,9 @@
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://cloudflareinsights.com
+  Link: <https://willturner.au/llms.txt>; rel="describedby"
+  Link: <https://willturner.au/sitemap.xml>; rel="sitemap"
+  Link: <https://willturner.au/.well-known/api-catalog>; rel="api-catalog"
 
 /*.css
   Cache-Control: public, max-age=31536000, immutable
@@ -40,3 +43,13 @@
 
 /*.ico
   Cache-Control: public, max-age=31536000, immutable
+
+/.well-known/api-catalog
+  Content-Type: application/linkset+json
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
+
+/.well-known/agent-skills/index.json
+  Content-Type: application/json
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *

@@ -41,4 +41,7 @@ Allow: /
 # Machine-readable summary of this site is available at:
 # https://willturner.au/llms.txt
 
+# Content Signals (contentsignals.org) — AI usage preferences
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
 Sitemap: https://willturner.au/sitemap.xml

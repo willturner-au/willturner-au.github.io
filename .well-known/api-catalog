@@ -1,0 +1,20 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://willturner.au/",
+      "describedby": [
+        { "href": "https://willturner.au/llms.txt", "type": "text/plain" }
+      ],
+      "service-doc": [
+        { "href": "https://willturner.au/sitemap.xml", "type": "application/xml" }
+      ],
+      "item": [
+        { "href": "https://willturner.au/speaking", "type": "text/html" },
+        { "href": "https://willturner.au/coaching", "type": "text/html" },
+        { "href": "https://willturner.au/advisory", "type": "text/html" },
+        { "href": "https://willturner.au/about", "type": "text/html" },
+        { "href": "https://willturner.au/contact", "type": "text/html" }
+      ]
+    }
+  ]
+}
