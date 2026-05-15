@@ -56,7 +56,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 0;
-  height: 88px;
+  height: 108px;
 }
 .logo-strip-cell {
   flex: 1;
@@ -65,54 +65,54 @@
   justify-content: center;
   height: 100%;
   position: relative;
-  padding: 0 8px;
+  padding: 0 12px;
 }
 /* Subtle dividers between cells */
 .logo-strip-cell + .logo-strip-cell::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 24px;
-  bottom: 24px;
+  top: 28px;
+  bottom: 28px;
   width: 0.5px;
   background: rgba(240,237,230,0.06);
 }
 .logo-strip-img {
   display: block;
-  max-height: 28px;
-  width: 75%;
+  max-height: 40px;
+  width: 80%;
   object-fit: contain;
-  opacity: 0.18;
+  opacity: 0.2;
   filter: grayscale(100%) brightness(4);
   transition: opacity 0.35s ease, filter 0.35s ease;
 }
 .logo-strip-cell:hover .logo-strip-img {
-  opacity: 0.7;
+  opacity: 0.75;
   filter: grayscale(0%) brightness(1);
 }
-/* Per-logo optical sizing — matches grid section */
-.logo-strip-img[src*="news-corp-logo"]        { width: 62%; max-height: 22px; filter: invert(1) grayscale(100%) brightness(2); }
+/* Per-logo optical sizing */
+.logo-strip-img[src*="news-corp-logo"]        { width: 72%; max-height: 30px; filter: invert(1) grayscale(100%) brightness(2); }
 .logo-strip-cell:hover .logo-strip-img[src*="news-corp-logo"] { filter: invert(1) grayscale(0%) brightness(0.85); }
-.logo-strip-img[src*="ricoh"]                 { width: 44%; max-height: 20px; }
-.logo-strip-img[src*="best-western"]          { width: 62%; max-height: 28px; }
-.logo-strip-img[src*="eftpos"]                { width: 55%; max-height: 24px; }
-.logo-strip-img[src*="Queensland-Government"] { width: 78%; max-height: 32px; filter: invert(1) grayscale(100%) brightness(2); }
+.logo-strip-img[src*="ricoh"]                 { width: 52%; max-height: 28px; }
+.logo-strip-img[src*="best-western"]          { width: 72%; max-height: 38px; }
+.logo-strip-img[src*="eftpos"]                { width: 64%; max-height: 32px; }
+.logo-strip-img[src*="Queensland-Government"] { width: 84%; max-height: 44px; filter: invert(1) grayscale(100%) brightness(2); }
 .logo-strip-cell:hover .logo-strip-img[src*="Queensland-Government"] { filter: invert(1) grayscale(0%) brightness(0.85); }
-.logo-strip-img[src*="tourism-and-events"]    { width: 68%; max-height: 36px; }
-.logo-strip-img[src*="gov-uk"]               { width: 58%; max-height: 28px; }
-.logo-strip-img[src*="VTIC"]                  { width: 46%; max-height: 28px; filter: grayscale(100%) brightness(5) contrast(1.2); }
+.logo-strip-img[src*="tourism-and-events"]    { width: 78%; max-height: 48px; }
+.logo-strip-img[src*="gov-uk"]                { width: 68%; max-height: 36px; }
+.logo-strip-img[src*="VTIC"]                  { width: 54%; max-height: 36px; filter: grayscale(100%) brightness(5) contrast(1.2); }
 .logo-strip-cell:hover .logo-strip-img[src*="VTIC"] { filter: grayscale(0%) brightness(1) contrast(1); }
 
 @media(max-width:860px) {
   .logo-strip { padding: 0 1.5rem; }
   .logo-strip-inner { flex-wrap: wrap; height: auto; padding: 1.5rem 0; gap: 0; }
-  .logo-strip-cell { flex: 0 0 25%; height: 56px; padding: 0 4px; }
+  .logo-strip-cell { flex: 0 0 25%; height: 64px; padding: 0 6px; }
   .logo-strip-cell + .logo-strip-cell::before { display: none; }
-  .logo-strip-img { width: 80% !important; max-height: 24px !important; }
+  .logo-strip-img { width: 80% !important; max-height: 30px !important; }
 }
 @media(max-width:560px) {
   .logo-strip { padding: 0 1.25rem; }
-  .logo-strip-cell { flex: 0 0 25%; height: 48px; }
+  .logo-strip-cell { flex: 0 0 25%; height: 52px; }
 }
 
 /* ============================================================
