@@ -546,60 +546,75 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 32px 24px;
+  padding: 28px 16px 20px;
   border-right: 0.5px solid rgba(240,237,230,0.05);
   border-bottom: 0.5px solid rgba(240,237,230,0.05);
   position: relative;
   cursor: default;
   transition: background 0.3s ease;
-  min-height: 100px;
+  min-height: 110px;
 }
 .proof-logo-cell:nth-child(4n) { border-right: none; }
 .proof-logo-cell:nth-child(n+5) { border-bottom: none; }
 .proof-logo-cell:hover { background: rgba(201,169,110,0.03); }
 
-/* ── Logo image ── */
+/* ── Logo image — optical sizing system ──
+   Every cell has a fixed 44px image zone. Width % per logo
+   controls visual weight so all marks feel equally present.
+   brightness(4) on grayscale makes dark artwork show on dark bg.
+   invert(1) flips white-bg logos so they read on dark bg. */
+
+.proof-logo-img-wrap {
+  height: 44px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
 .proof-logo-img {
-  max-height: 36px;
-  max-width: 130px;
-  width: auto;
-  height: auto;
+  display: block;
+  max-height: 44px;
+  width: 65%;
   object-fit: contain;
   opacity: 0.22;
-  filter: grayscale(100%) brightness(3);
+  filter: grayscale(100%) brightness(4);
   transition: opacity 0.4s ease, filter 0.4s ease;
-  display: block;
 }
 .proof-logo-cell:hover .proof-logo-img {
-  opacity: 0.8;
+  opacity: 0.85;
   filter: grayscale(0%) brightness(1);
 }
-/* Black-on-white logos: invert so they show as white on dark background */
-.proof-logo-img[src*="Queensland-Government"] {
-  max-height: 44px;
-  max-width: 180px;
-  filter: invert(1) grayscale(100%) brightness(2);
-}
-.proof-logo-cell:hover .proof-logo-img[src*="Queensland-Government"] {
-  filter: invert(1) grayscale(0%) brightness(1);
-}
-/* Square / icon logos need more height */
-.proof-logo-img[src*="news-corp"],
-.proof-logo-img[src*="gov-uk"] {
-  max-height: 56px;
-  max-width: 56px;
-}
-/* Wide logos */
-.proof-logo-img[src*="eftpos"],
-.proof-logo-img[src*="best-western"],
-.proof-logo-img[src*="tourism-and-events"] {
-  max-width: 150px;
-}
-/* Small logos — give more room */
-.proof-logo-img[src*="VTIC"] {
-  max-height: 48px;
-  max-width: 120px;
-}
+
+/* ── Per-logo optical width — tuned to aspect ratio and mark weight ── */
+/* News Corp script wordmark — wide, 4:1 ratio */
+.proof-logo-img[src*="news-corp-logo"]         { width: 70%; max-height: 36px; filter: invert(1) grayscale(100%) brightness(2); }
+.proof-logo-cell:hover .proof-logo-img[src*="news-corp-logo"] { filter: invert(1) grayscale(0%) brightness(0.85); }
+
+/* Ricoh — wide wordmark, bold weight */
+.proof-logo-img[src*="ricoh"]                  { width: 52%; max-height: 32px; }
+
+/* Best Western — wide lockup with icon */
+.proof-logo-img[src*="best-western"]           { width: 70%; max-height: 40px; }
+
+/* eftpos — medium-wide, light colour on dark bg already */
+.proof-logo-img[src*="eftpos"]                 { width: 58%; max-height: 36px; }
+
+/* Queensland Government — black on white, needs invert, wide crest+wordmark */
+.proof-logo-img[src*="Queensland-Government"]  { width: 78%; max-height: 44px; filter: invert(1) grayscale(100%) brightness(2); }
+.proof-logo-cell:hover .proof-logo-img[src*="Queensland-Government"] { filter: invert(1) grayscale(0%) brightness(0.85); }
+
+/* Tourism & Events Queensland — tall script, give it more height */
+.proof-logo-img[src*="tourism-and-events"]     { width: 76%; max-height: 52px; }
+
+/* GOV.UK — square icon, colour logo on white bg, needs invert */
+.proof-logo-img[src*="gov-uk"]                 { width: 46%; max-height: 44px; filter: invert(1) grayscale(100%) brightness(2); }
+.proof-logo-cell:hover .proof-logo-img[src*="gov-uk"] { filter: invert(1) grayscale(0%) brightness(0.85); }
+
+/* VTIC — outline logo, boost brightness to make strokes visible */
+.proof-logo-img[src*="VTIC"]                   { width: 54%; max-height: 40px; filter: grayscale(100%) brightness(5) contrast(1.2); }
+.proof-logo-cell:hover .proof-logo-img[src*="VTIC"] { filter: grayscale(0%) brightness(1) contrast(1); }
 
 /* ── Fallback: text name when image is missing ── */
 .proof-logo-fallback {
@@ -617,24 +632,25 @@
   color: rgba(240,237,230,0.75);
 }
 
-/* ── Client name tooltip on hover ── */
+/* ── Client name — reveals on hover, wraps cleanly ── */
 .proof-logo-name {
-  font-size: 9px;
+  font-size: 8px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(201,169,110,0);
-  margin-top: 10px;
   text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 110px;
+  white-space: normal;
+  line-height: 1.55;
+  width: 100%;
+  padding: 0 8px;
   transition: color 0.35s ease;
-  height: 11px;
-  line-height: 11px;
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .proof-logo-cell:hover .proof-logo-name {
-  color: rgba(201,169,110,0.5);
+  color: rgba(201,169,110,0.6);
 }
 
 /* ── Sector / geography pill under name ── */
@@ -1401,7 +1417,10 @@ nav { animation: fadeDown 0.8s ease both; }
       };
 
       img.src = src;
-      cell.appendChild(img);
+      var wrap = document.createElement('div');
+      wrap.className = 'proof-logo-img-wrap';
+      wrap.appendChild(img);
+      cell.appendChild(wrap);
     } else {
       var fb = document.createElement('div');
       fb.className = 'proof-logo-fallback';
