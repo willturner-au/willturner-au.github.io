@@ -44,6 +44,78 @@
 <style>
 
 /* ============================================================
+   LOGO STRIP — post-hero, single row, no copy
+   ============================================================ */
+.logo-strip {
+  border-bottom: 0.5px solid var(--cream-10);
+  background: var(--ink);
+  padding: 0 4rem;
+}
+.logo-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  height: 88px;
+}
+.logo-strip-cell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+  padding: 0 8px;
+}
+/* Subtle dividers between cells */
+.logo-strip-cell + .logo-strip-cell::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 24px;
+  bottom: 24px;
+  width: 0.5px;
+  background: rgba(240,237,230,0.06);
+}
+.logo-strip-img {
+  display: block;
+  max-height: 28px;
+  width: 75%;
+  object-fit: contain;
+  opacity: 0.18;
+  filter: grayscale(100%) brightness(4);
+  transition: opacity 0.35s ease, filter 0.35s ease;
+}
+.logo-strip-cell:hover .logo-strip-img {
+  opacity: 0.7;
+  filter: grayscale(0%) brightness(1);
+}
+/* Per-logo optical sizing — matches grid section */
+.logo-strip-img[src*="news-corp-logo"]        { width: 62%; max-height: 22px; filter: invert(1) grayscale(100%) brightness(2); }
+.logo-strip-cell:hover .logo-strip-img[src*="news-corp-logo"] { filter: invert(1) grayscale(0%) brightness(0.85); }
+.logo-strip-img[src*="ricoh"]                 { width: 44%; max-height: 20px; }
+.logo-strip-img[src*="best-western"]          { width: 62%; max-height: 28px; }
+.logo-strip-img[src*="eftpos"]                { width: 55%; max-height: 24px; }
+.logo-strip-img[src*="Queensland-Government"] { width: 78%; max-height: 32px; filter: invert(1) grayscale(100%) brightness(2); }
+.logo-strip-cell:hover .logo-strip-img[src*="Queensland-Government"] { filter: invert(1) grayscale(0%) brightness(0.85); }
+.logo-strip-img[src*="tourism-and-events"]    { width: 68%; max-height: 36px; }
+.logo-strip-img[src*="gov-uk"]               { width: 58%; max-height: 28px; }
+.logo-strip-img[src*="VTIC"]                  { width: 46%; max-height: 28px; filter: grayscale(100%) brightness(5) contrast(1.2); }
+.logo-strip-cell:hover .logo-strip-img[src*="VTIC"] { filter: grayscale(0%) brightness(1) contrast(1); }
+
+@media(max-width:860px) {
+  .logo-strip { padding: 0 1.5rem; }
+  .logo-strip-inner { flex-wrap: wrap; height: auto; padding: 1.5rem 0; gap: 0; }
+  .logo-strip-cell { flex: 0 0 25%; height: 56px; padding: 0 4px; }
+  .logo-strip-cell + .logo-strip-cell::before { display: none; }
+  .logo-strip-img { width: 80% !important; max-height: 24px !important; }
+}
+@media(max-width:560px) {
+  .logo-strip { padding: 0 1.25rem; }
+  .logo-strip-cell { flex: 0 0 25%; height: 48px; }
+}
+
+/* ============================================================
    HERO
    ============================================================ */
 .hero {
@@ -1059,6 +1131,41 @@ nav { animation: fadeDown 0.8s ease both; }
     <div class="scroll-line"></div>
   </div>
 </section>
+
+<!-- ============================================================
+     LOGO STRIP — immediately post-hero trust signal
+     8 logos, single row, no labels, no copy. They do the work.
+     ============================================================ -->
+<div class="logo-strip" id="logo-strip" aria-label="Selected client organisations">
+  <div class="logo-strip-inner">
+    <div class="logo-strip-cell" data-src="client-logos/news-corp-logo.png" data-name="News Corp Australia"></div>
+    <div class="logo-strip-cell" data-src="client-logos/ricoh.png" data-name="Ricoh Europe"></div>
+    <div class="logo-strip-cell" data-src="client-logos/best-western.png" data-name="Best Western"></div>
+    <div class="logo-strip-cell" data-src="client-logos/eftpos_logo_hor_rev_rgb.png" data-name="eftpos Australia"></div>
+    <div class="logo-strip-cell" data-src="client-logos/Queensland-Government-logo.png" data-name="Queensland Government"></div>
+    <div class="logo-strip-cell" data-src="client-logos/tourism-and-events-queensland-seeklogo.png" data-name="Tourism Queensland"></div>
+    <div class="logo-strip-cell" data-src="client-logos/gov-uk.png" data-name="GOV.UK"></div>
+    <div class="logo-strip-cell" data-src="client-logos/VTIC.webp" data-name="VTIC"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.logo-strip-cell').forEach(function(cell){
+    var src  = cell.dataset.src;
+    var name = cell.dataset.name || '';
+    if (!src) return;
+    var img = document.createElement('img');
+    img.className = 'logo-strip-img';
+    img.alt = name;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.onerror = function(){ this.remove(); };
+    img.src = src;
+    cell.appendChild(img);
+  });
+})();
+</script>
 
 <!-- ============================================================
      SECTION 2 — THE HARD TRUTH (provocation)
