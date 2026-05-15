@@ -92,10 +92,12 @@
   filter: grayscale(0%) brightness(1);
 }
 /* Per-logo optical sizing */
-.logo-strip-img[src*="news-corp-logo"]        { width: 72%; max-height: 30px; filter: invert(1) grayscale(100%) brightness(2); }
 .logo-strip-cell:hover .logo-strip-img[src*="news-corp-logo"] { filter: invert(1) grayscale(0%) brightness(0.85); }
 .logo-strip-img[src*="ricoh"]                 { width: 52%; max-height: 28px; }
 .logo-strip-img[src*="best-western"]          { width: 72%; max-height: 38px; }
+.logo-strip-img[src*="cybercert"]             { width: 62%; max-height: 28px; filter: invert(1) grayscale(100%) brightness(2); }
+.logo-strip-img[src*="news-corp-logo"]        { width: 72%; max-height: 30px; filter: invert(1) grayscale(100%) brightness(2); }
+.logo-strip-cell:hover .logo-strip-img[src*="cybercert"] { filter: invert(1) grayscale(0%) brightness(0.85); }
 .logo-strip-img[src*="eftpos"]                { width: 64%; max-height: 32px; }
 .logo-strip-img[src*="Queensland-Government"] { width: 84%; max-height: 44px; filter: invert(1) grayscale(100%) brightness(2); }
 .logo-strip-cell:hover .logo-strip-img[src*="Queensland-Government"] { filter: invert(1) grayscale(0%) brightness(0.85); }
@@ -553,24 +555,6 @@
   color: rgba(201,169,110,0.5);
 }
 
-/* ============================================================
-   SOCIAL PROOF — client logos + testimonial
-   ============================================================ */
-
-/* ── Section wrapper ── */
-.proof-section {
-  padding: 6rem 4rem;
-  border-bottom: 0.5px solid var(--cream-10);
-  position: relative;
-}
-.proof-section::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 4rem; right: 4rem;
-  height: 0.5px;
-  background: linear-gradient(90deg, transparent, rgba(201,169,110,0.15) 20%, rgba(201,169,110,0.15) 80%, transparent);
-}
-
 /* ── Eyebrow ── */
 .proof-eyebrow {
   font-size: 10px;
@@ -661,15 +645,15 @@
 }
 
 /* ── Per-logo optical width — tuned to aspect ratio and mark weight ── */
-/* News Corp script wordmark — wide, 4:1 ratio */
-.proof-logo-img[src*="news-corp-logo"]         { width: 70%; max-height: 36px; filter: invert(1) grayscale(100%) brightness(2); }
-.proof-logo-cell:hover .proof-logo-img[src*="news-corp-logo"] { filter: invert(1) grayscale(0%) brightness(0.85); }
-
 /* Ricoh — wide wordmark, bold weight */
 .proof-logo-img[src*="ricoh"]                  { width: 52%; max-height: 32px; }
 
 /* Best Western — wide lockup with icon */
 .proof-logo-img[src*="best-western"]           { width: 70%; max-height: 40px; }
+
+/* News Corp script wordmark — wide, 4:1 ratio */
+.proof-logo-img[src*="news-corp-logo"]         { width: 70%; max-height: 36px; filter: invert(1) grayscale(100%) brightness(2); }
+.proof-logo-cell:hover .proof-logo-img[src*="news-corp-logo"] { filter: invert(1) grayscale(0%) brightness(0.85); }
 
 /* eftpos — medium-wide, light colour on dark bg already */
 .proof-logo-img[src*="eftpos"]                 { width: 68%; max-height: 36px; }
@@ -1146,6 +1130,7 @@ nav { animation: fadeDown 0.8s ease both; }
     <div class="logo-strip-cell" data-src="client-logos/Queensland-Government-logo.png" data-name="Queensland Government"></div>
     <div class="logo-strip-cell" data-src="client-logos/tourism-and-events-queensland-seeklogo.png" data-name="Tourism Queensland"></div>
     <div class="logo-strip-cell" data-src="client-logos/gov-uk.png" data-name="GOV.UK"></div>
+    <div class="logo-strip-cell" data-src="client-logos/cybercert.png" data-name="CyberCert"></div>
     <div class="logo-strip-cell" data-src="client-logos/VTIC.webp" data-name="VTIC"></div>
   </div>
 </div>
@@ -1420,130 +1405,7 @@ nav { animation: fadeDown 0.8s ease both; }
 </div>
 
 <!-- ============================================================
-     SECTION 7 — SOCIAL PROOF
-     Logo files go in /client-logos/ — see comment on each cell
-     ============================================================ -->
-<section class="proof-section reveal" aria-label="Client organisations and testimonial">
-
-  <div class="proof-eyebrow">Leaders who've made the penny drop</div>
-
-  <!-- ── Logo grid: 4 × 2 ──────────────────────────────────────────
-       Drop your logo files into a /client-logos/ folder in the repo root.
-       Name them exactly as shown in each data-src attribute.
-       PNG with transparent background preferred. Min 300px wide.
-       The JS below handles missing files gracefully — name shows instead.
-       ──────────────────────────────────────────────────────────── -->
-  <div class="proof-logo-grid" id="proof-grid">
-
-    <!-- Row 1 -->
-    <div class="proof-logo-cell" data-src="client-logos/news-corp-logo.png" data-name="News Corp Australia" data-sector="Media"></div>
-    <div class="proof-logo-cell" data-src="client-logos/ricoh.png" data-name="Ricoh Europe" data-sector="Technology"></div>
-    <div class="proof-logo-cell" data-src="client-logos/best-western.png" data-name="Best Western" data-sector="Hospitality"></div>
-    <div class="proof-logo-cell" data-src="client-logos/eftpos_logo_hor_rev_rgb.png" data-name="eftpos Australia" data-sector="Finance"></div>
-
-    <!-- Row 2 -->
-    <div class="proof-logo-cell" data-src="client-logos/Queensland-Government-logo.png" data-name="Queensland Government" data-sector="Government"></div>
-    <div class="proof-logo-cell" data-src="client-logos/tourism-and-events-queensland-seeklogo.png" data-name="Tourism & Events Queensland" data-sector="Tourism"></div>
-    <div class="proof-logo-cell" data-src="client-logos/gov-uk.png" data-name="GOV.UK" data-sector="Government · UK"></div>
-    <div class="proof-logo-cell" data-src="client-logos/VTIC.webp" data-name="Victorian Tourism Industry Council" data-sector="Tourism"></div>
-
-  </div>
-
-  <!-- ── Testimonial + stats ──────────────────────────────────── -->
-  <div class="proof-testimonial">
-
-    <div class="proof-quote-block">
-      <span class="proof-quote-mark" aria-hidden="true">“</span>
-      <p class="proof-quote-text">You definitely know when he is in the room &mdash; a perfect balance of commercial acumen, pragmatism, and the ability to make a real strategic difference.</p>
-      <div class="proof-quote-attr">
-        Dave Roberts
-        <span>Director, LBR Consulting &mdash; London</span>
-      </div>
-    </div>
-
-    <div class="proof-stat-block">
-      <div class="proof-stat">
-        <div class="proof-stat-num">30</div>
-        <div class="proof-stat-label">Years</div>
-      </div>
-      <div class="proof-stat">
-        <div class="proof-stat-num">3</div>
-        <div class="proof-stat-label">Continents</div>
-      </div>
-      <div class="proof-stat">
-        <div class="proof-stat-num">4</div>
-        <div class="proof-stat-label">Disciplines</div>
-      </div>
-      <div class="proof-stat">
-        <div class="proof-stat-num">1</div>
-        <div class="proof-stat-label">Idea</div>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-<script>
-/* ── Social proof logo loader ──
-   Reads data-src / data-name / data-sector from each .proof-logo-cell.
-   If image loads  → shows it + name on hover.
-   If image 404s   → gracefully shows the client name as styled text.
-*/
-(function(){
-  var cells = document.querySelectorAll('#proof-grid .proof-logo-cell');
-  cells.forEach(function(cell){
-    var src    = cell.dataset.src;
-    var name   = cell.dataset.name   || '';
-    var sector = cell.dataset.sector || '';
-
-    var nameEl = document.createElement('div');
-    nameEl.className = 'proof-logo-name';
-    nameEl.textContent = name;
-    nameEl.setAttribute('aria-hidden','true');
-
-    var sectorEl = document.createElement('div');
-    sectorEl.className = 'proof-logo-sector';
-    sectorEl.textContent = sector;
-    sectorEl.setAttribute('aria-hidden','true');
-
-    if (src) {
-      var img = document.createElement('img');
-      img.className = 'proof-logo-img';
-      img.alt = name;
-      img.loading = 'lazy';
-      img.decoding = 'async';
-
-      img.onerror = function(){
-        this.remove();
-        var fb = document.createElement('div');
-        fb.className = 'proof-logo-fallback';
-        fb.textContent = name;
-        cell.insertBefore(fb, nameEl);
-        /* On fallback, show name always (not just on hover) */
-        nameEl.style.color = 'rgba(201,169,110,0.35)';
-      };
-
-      img.src = src;
-      var wrap = document.createElement('div');
-      wrap.className = 'proof-logo-img-wrap';
-      wrap.appendChild(img);
-      cell.appendChild(wrap);
-    } else {
-      var fb = document.createElement('div');
-      fb.className = 'proof-logo-fallback';
-      fb.textContent = name;
-      cell.appendChild(fb);
-    }
-
-    cell.appendChild(nameEl);
-    cell.appendChild(sectorEl);
-  });
-})();
-</script>
-
-<!-- ============================================================
-     SECTION 8 — HOW WILL WORKS WITH YOU
+     SECTION 7 — HOW WILL WORKS WITH YOU
      ============================================================ -->
 <section class="offers-hp reveal">
   <div class="offers-hp-header">
